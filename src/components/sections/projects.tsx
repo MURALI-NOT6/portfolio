@@ -9,6 +9,8 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { ArrowRight, ExternalLink, Plus } from 'lucide-react';
 import { ProjectDialog } from './project-dialog';
+import alpha from '../../assets/alpha.png';
+import fence from '../../assets/fence.png'
 
 const allProjects = [
   {
@@ -90,8 +92,8 @@ const allProjects = [
     tags: ["React JS", "HTML", "CSS", "Javascript"],
     useCases: [],
     liveUrl: "https://alphadeserve.com/",
-    mediaType: "video",
-    mediaUrl: "https://storage.googleapis.com/makerteams-assets/cjs-story-screenshots/story-5-final.mp4"
+    mediaType: "image",
+    mediaUrl: alpha
   },
   {
     id: "project-5",
@@ -282,7 +284,9 @@ const allProjects = [
     ],
     tags: ["Wordpress", "Divi Builder", "UI Developer"],
     useCases: [],
-    liveUrl: "https://www.fenceabroad.com/"
+    liveUrl: "https://www.fenceabroad.com/",
+     mediaType: "image",
+    mediaUrl: fence
   }
 ];
 

@@ -105,7 +105,7 @@ export default function Navigation() {
                       }}
                       className={cn(
                         "transition-colors hover:text-primary text-foreground/80 font-medium px-3 py-2 sm:px-4 rounded-full",
-                        activeLink === link.href ? "bg-primary-foreground text-primary" : "hover:bg-muted"
+                        activeLink === link.href ? "bg-white text-primary" : "hover:bg-muted"
                       )}
                     >
                       {link.label}

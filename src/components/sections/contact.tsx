@@ -20,10 +20,10 @@ const contactSchema = z.object({
 });
 
 const contactInfo = [
-  { icon: <Mail className="h-5 w-5 text-primary" />, text: "hello@portfoliopro.com", href: "mailto:hello@portfoliopro.com", label: "Email" },
-  { icon: <Phone className="h-5 w-5 text-primary" />, text: "+1 (123) 456-7890", href: "tel:+11234567890", label: "Phone" },
+  { icon: <Mail className="h-5 w-5 text-primary" />, text: "muralinot6@gmail.com", href: "mailto:muralinot6@gmail.com", label: "Email" },
+  // { icon: <Phone className="h-5 w-5 text-primary" />, text: "+1 (123) 456-7890", href: "tel:+11234567890", label: "Phone" },
   { icon: <Linkedin className="h-5 w-5 text-primary" />, text: "linkedin.com/in/yourprofile", href: "https://linkedin.com", label: "LinkedIn" },
-  { icon: <MapPin className="h-5 w-5 text-primary" />, text: "San Francisco, CA", label: "Location" },
+  { icon: <MapPin className="h-5 w-5 text-primary" />, text: "Salem, Tamil Nadu, IN.", label: "Location" },
 ];
 
 export default function ContactSection() {
