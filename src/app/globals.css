@@ -101,6 +101,15 @@
   }
 }
 
+@keyframes rotate-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
 .animated-border {
   position: relative;
   border-radius: 9999px; /* rounded-full */
@@ -129,4 +138,22 @@
 .animated-border > * {
   position: relative;
   z-index: 1;
+}
+
+.animated-border::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 180deg,
+    hsl(var(--primary) / 0.8),
+    hsl(var(--accent) / 0.5),
+    hsl(var(--secondary) / 0.7),
+    hsl(var(--primary) / 0.8)
+  );
+  animation: rotate-reverse 10s linear infinite;
+  transform: translate(-50%, -50%);
 }
