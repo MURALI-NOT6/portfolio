@@ -91,3 +91,42 @@
     position: absolute;
     color: hsl(var(--primary));
 }
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animated-border {
+  position: relative;
+  border-radius: 9999px; /* rounded-full */
+  padding: 4px; /* border-width */
+  overflow: hidden;
+  box-shadow: 0 0 20px 5px hsl(var(--primary) / 0.2);
+}
+
+.animated-border::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 0deg,
+    hsl(var(--primary) / 0.8),
+    hsl(var(--accent) / 0.5),
+    hsl(var(--primary) / 0.8)
+  );
+  animation: rotate 10s linear infinite;
+  transform: translate(-50%, -50%);
+}
+
+.animated-border > * {
+  position: relative;
+  z-index: 1;
+}

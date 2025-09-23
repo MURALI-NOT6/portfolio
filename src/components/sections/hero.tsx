@@ -21,15 +21,17 @@ export default function HeroSection() {
         <div className="grid lg:grid-cols-2 gap-12 xl:gap-24 items-center">
             <div className="relative flex justify-center items-center animate-in fade-in zoom-in-90 duration-500 delay-200 order-1 lg:order-2 h-[280px] sm:h-[350px] lg:h-[450px]">
                 {heroImage && (
-                    <Image
-                        src={img}
-                        alt={heroImage.description}
-                        width={400}
-                        height={400}
-                        className="rounded-full object-cover border-4 border-primary/20 shadow-lg w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] lg:w-[450px] lg:h-[450px]"
-                        data-ai-hint={heroImage.imageHint}
-                        priority
-                    />
+                    <div className="animated-border">
+                        <Image
+                            src={img}
+                            alt={heroImage.description}
+                            width={400}
+                            height={400}
+                            className="rounded-full object-cover w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] lg:w-[450px] lg:h-[450px] border-4 border-transparent"
+                            data-ai-hint={heroImage.imageHint}
+                            priority
+                        />
+                    </div>
                 )}
             </div>
           <div className="space-y-6 text-center lg:text-left order-2 lg:order-1">

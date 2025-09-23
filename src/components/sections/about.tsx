@@ -13,13 +13,17 @@ export default function AboutSection() {
             <div className="absolute inset-0 bg-primary/10 rounded-full -translate-x-4 -translate-y-4 sm:-translate-x-8 sm:-translate-y-8 scale-105 sm:scale-110 blur-2xl"></div>
             <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-full lg:h-auto lg:aspect-square">
               {profileImage && (
+                 <div className="animated-border">
                 <Image
-                  src={img}
-                  alt={profileImage.description}
-                  fill
-                  className="rounded-full object-cover border-4 border-primary/20 shadow-lg"
-                  data-ai-hint={profileImage.imageHint}
-                />
+                            src={img}
+                            alt={profileImage.description}
+                            width={400}
+                            height={400}
+                            className="rounded-full object-cover w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] lg:w-[450px] lg:h-[450px] border-4 border-transparent"
+                            data-ai-hint={profileImage.imageHint}
+                            priority
+                        /> 
+                 </div>
               )}
             </div>
           </div>
