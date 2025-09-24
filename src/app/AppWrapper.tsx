@@ -11,9 +11,11 @@ export default function AppWrapper({
     children: React.ReactNode;
   }>) {
     const [isPlaying, setIsPlaying] = useState(false);
+    const [hasEntered, setHasEntered] = useState(false);
 
     const handleEnter = () => {
       setIsPlaying(true);
+      setHasEntered(true);
     };
 
     const togglePlayPause = () => {
@@ -22,7 +24,7 @@ export default function AppWrapper({
 
     return (
         <>
-            {!isPlaying && <WelcomeOverlay onEnter={handleEnter} />}
+            {!hasEntered && <WelcomeOverlay onEnter={handleEnter} />}
             {children}
             <Toaster />
             <MusicPlayer isPlaying={isPlaying} togglePlayPause={togglePlayPause} />

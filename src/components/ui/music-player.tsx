@@ -65,10 +65,13 @@ const MusicPlayer: React.FC<MusicPlayerProps> = ({ isPlaying, togglePlayPause })
   }, [isPlaying]);
 
   return (
-    <div className="fixed bottom-4 right-4 z-50">
+    <div className="fixed bottom-4 right-4 z-40">
       <audio ref={audioRef} src="/music/bgm.mp3" />
       <button
-        onClick={togglePlayPause}
+        onClick={(e) => {
+          e.stopPropagation();
+          togglePlayPause();
+        }}
         className="p-3 rounded-lg bg-primary text-primary-foreground shadow-lg"
       >
         {isPlaying ? <PlayingIcon /> : <PausedIcon />}

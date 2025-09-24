@@ -18,7 +18,7 @@ interface NavigationProps {
 
 export default function Navigation({ activeSection, setActiveSection }: NavigationProps) {
   return (
-    <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50">
+    <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-40">
       <div className="container mx-auto flex items-center justify-center">
         <div className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/60 p-2 rounded-full shadow-lg border">
           {navLinks.map((link) => (
