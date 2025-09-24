@@ -49,7 +49,7 @@ const skillsData = [
 
 export default function SkillsSection() {
   return (
-    <section id="skills" className="relative overflow-hidden py-16 md:py-24 animate-in fade-in duration-500">
+    <section id="skills" className="relative overflow-hidden py-16 md:py-24 animate-in fade-in duration-500 min-h-screen flex items-center">
       <div aria-hidden="true" className="absolute inset-0 -z-10">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40rem] h-[40rem] bg-gradient-to-br from-primary/10 to-accent/10 rounded-full blur-3xl opacity-50" />
       </div>

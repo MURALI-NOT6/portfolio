@@ -303,7 +303,7 @@ export default function ProjectsSection() {
   };
 
   return (
-    <section id="projects" className="py-16 md:py-24 bg-card">
+    <section id="projects" className="py-16 md:py-24 bg-card min-h-screen">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 animate-in fade-in slide-in-from-bottom-10 duration-500">
           <h2 className="font-headline text-3xl md:text-4xl font-bold">My Projects</h2>

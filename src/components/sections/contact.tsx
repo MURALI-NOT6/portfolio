@@ -22,7 +22,7 @@ const contactSchema = z.object({
 const contactInfo = [
   { icon: <Mail className="h-5 w-5 text-primary" />, text: "muralinot6@gmail.com", href: "mailto:muralinot6@gmail.com", label: "Email" },
   // { icon: <Phone className="h-5 w-5 text-primary" />, text: "+1 (123) 456-7890", href: "tel:+11234567890", label: "Phone" },
-  { icon: <Linkedin className="h-5 w-5 text-primary" />, text: "linkedin.com/in/yourprofile", href: "https://linkedin.com", label: "LinkedIn" },
+  { icon: <Linkedin className="h-5 w-5 text-primary" />, text: "linkedin.com/in/murali-dharan-m-897243195", href: "https://www.linkedin.com/in/murali-dharan-m-897243195/", label: "LinkedIn" },
   { icon: <MapPin className="h-5 w-5 text-primary" />, text: "Salem, Tamil Nadu, IN.", label: "Location" },
 ];
 
@@ -62,7 +62,7 @@ export default function ContactSection() {
   }
 
   return (
-    <section id="contact" className="relative overflow-hidden py-16 md:py-24">
+    <section id="contact" className="relative overflow-hidden py-16 md:py-24 min-h-screen flex items-center">
        <div aria-hidden="true" className="absolute inset-0 -z-10">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40rem] h-[40rem] bg-gradient-to-br from-primary/10 to-accent/10 rounded-full blur-3xl opacity-50" />
       </div>
@@ -142,7 +142,7 @@ export default function ContactSection() {
                       </FormItem>
                     )}
                   />
-                  <Button type="submit" className="w-full" disabled={isSubmitting}>
+                  <Button type="submit" className="w-full text-white" disabled={isSubmitting}>
                     {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
                 </form>

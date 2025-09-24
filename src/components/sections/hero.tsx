@@ -11,7 +11,7 @@ import img from '../../assets/banner.png'
 
 
 export default function HeroSection() {
-    const roles = ["UI Developer", "Frontend Developer", "Automation Developer (n8n)", "Gen AI Developer"];
+    const roles = ["Frontend Developer", "React Developer", "Automation Developer (n8n)", "Gen AI Developer","UI Developer"];
     const heroImage = PlaceHolderImages.find(p => p.id === 'hero-person');
 
   return (
@@ -50,7 +50,7 @@ export default function HeroSection() {
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-in fade-in slide-in-from-bottom-10 duration-500 delay-300">
               <Button size="lg" asChild variant={'default'}>
-                <Link href="/resume.pdf" target="_blank">
+                <Link href="/resume.pdf" target="_blank" className='text-white flex items-center'>
                   <Download className="mr-2 h-5 w-5" />
                   Download Resume
                 </Link>

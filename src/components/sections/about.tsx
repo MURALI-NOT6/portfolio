@@ -6,7 +6,7 @@ export default function AboutSection() {
   const profileImage = PlaceHolderImages.find(p => p.id === 'profile-picture');
 
   return (
-    <section id="about" className="py-16 md:py-24 bg-card overflow-hidden">
+    <section id="about" className="py-16 md:py-24 bg-card overflow-hidden min-h-screen flex items-center">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-5 gap-8 md:gap-12 lg:gap-16 items-center">
           <div className="relative flex justify-center lg:col-span-2">
