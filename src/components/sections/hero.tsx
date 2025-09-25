@@ -9,14 +9,18 @@ import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import img from '../../assets/banner.png'
 
+interface HeroSectionProps {
+  animationsEnabled: boolean;
+  setActiveSection: (section: string) => void;
+}
 
-export default function HeroSection() {
+export default function HeroSection({ animationsEnabled, setActiveSection }: HeroSectionProps) {
     const roles = ["Frontend Developer", "React Developer", "Automation Developer (n8n)", "Gen AI Developer","UI Developer"];
     const heroImage = PlaceHolderImages.find(p => p.id === 'hero-person');
 
   return (
     <section id="home" className="relative w-full flex items-center justify-center overflow-hidden py-20 sm:py-28 md:py-32 lg:py-40 px-4 sm:px-6 lg:px-8 min-h-screen">
-      <AnimatedTechBackground />
+      {animationsEnabled && <AnimatedTechBackground />}
       <div className="container relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 xl:gap-24 items-center">
             <div className="relative flex justify-center items-center animate-in fade-in zoom-in-90 duration-500 delay-200 order-1 lg:order-2 h-[280px] sm:h-[350px] lg:h-[450px]">
@@ -40,7 +44,7 @@ export default function HeroSection() {
                 Muralidharan
               </h1>
               <div className="flex items-center justify-center lg:justify-start gap-2 text-lg sm:text-2xl md:text-3xl text-primary font-medium mt-2">
-                <TypingAnimation roles={roles} />
+                {animationsEnabled && <TypingAnimation roles={roles} />}
               </div>
             </div>
             <div className="animate-in fade-in slide-in-from-bottom-10 duration-500 delay-200">
@@ -55,10 +59,8 @@ export default function HeroSection() {
                   Download Resume
                 </Link>
               </Button>
-              <Button size="lg" variant="secondary" asChild>
-                <Link href="#contact">
-                  Contact Me <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
+              <Button size="lg" variant="secondary" onClick={() => setActiveSection("contact")}>
+                Contact Me <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </div>
           </div>

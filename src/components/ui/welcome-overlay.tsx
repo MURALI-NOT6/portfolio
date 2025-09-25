@@ -66,7 +66,7 @@ const WelcomeOverlay: React.FC<WelcomeOverlayProps> = ({ onEnter }) => {
           variants={itemVariants}
           className="text-lg mb-6 text-muted-foreground"
         >
-          Where innovation meets design and development. Explore my projects and discover how imagination turns into impactful digital experiences.
+          Where innovation meets design to development. Explore my projects and see how creativity transforms ideas into meaningful digital experiences.
         </motion.p>
         <motion.div variants={itemVariants} className="flex justify-center">
           <Button
