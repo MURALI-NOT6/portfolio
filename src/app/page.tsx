@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import HeroSection from "@/components/sections/hero";
 import AboutSection from "@/components/sections/about";
 import SkillsSection from "@/components/sections/skills";
@@ -7,6 +7,7 @@ import ProjectsSection from "@/components/sections/projects";
 import ContactSection from "@/components/sections/contact";
 import Navigation from "@/components/layout/navigation";
 import { AnimatePresence, motion } from "framer-motion";
+import WelcomeOverlay from "@/components/ui/welcome-overlay";
 
 const sections = {
   home: <HeroSection />,
@@ -18,6 +19,19 @@ const sections = {
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState("home");
+  const [showWelcomeOverlay, setShowWelcomeOverlay] = useState(false);
+
+  useEffect(() => {
+    const hasVisited = localStorage.getItem("hasVisitedPortfolio");
+    if (!hasVisited) {
+      setShowWelcomeOverlay(true);
+      localStorage.setItem("hasVisitedPortfolio", "true");
+    }
+  }, []);
+
+  const handleEnterPortfolio = () => {
+    setShowWelcomeOverlay(false);
+  };
 
   const handleSetActiveSection = (section: string) => {
     setActiveSection(section);
@@ -25,6 +39,9 @@ export default function Home() {
 
   return (
     <div className="flex min-h-screen flex-col">
+      <AnimatePresence>
+        {showWelcomeOverlay && <WelcomeOverlay onEnter={handleEnterPortfolio} />}
+      </AnimatePresence>
       <Navigation
         activeSection={activeSection}
         setActiveSection={handleSetActiveSection}
