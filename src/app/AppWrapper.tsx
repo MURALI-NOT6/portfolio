@@ -27,7 +27,7 @@ export default function AppWrapper({
             {!hasEntered && <WelcomeOverlay onEnter={handleEnter} />}
             {children}
             <Toaster />
-            <MusicPlayer isPlaying={isPlaying} togglePlayPause={togglePlayPause} />
+            {/* <MusicPlayer isPlaying={isPlaying} togglePlayPause={togglePlayPause} /> */}
         </>
     );
 }

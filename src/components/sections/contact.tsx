@@ -1,8 +1,8 @@
 "use client";
 
 import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 import { submitContactForm } from "@/lib/actions";
 import { useToast } from "@/hooks/use-toast";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -12,11 +12,12 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, Linkedin, MapPin, Send } from "lucide-react";
 import Link from "next/link";
+import { useState } from "react";
 
-const contactSchema = z.object({
-  name: z.string().min(2, { message: "Name must be at least 2 characters." }),
-  email: z.string().email({ message: "Please enter a valid email address." }),
-  message: z.string().min(10, { message: "Message must be at least 10 characters." }),
+const contactSchema = yup.object().shape({
+  name: yup.string().required("Name is required").min(2, "Name must be at least 2 characters."),
+  email: yup.string().required("Email is required").email("Please enter a valid email address."),
+  message: yup.string().required("Message is required").min(10, "Message must be at least 10 characters."),
 });
 
 const contactInfo = [
@@ -28,9 +29,10 @@ const contactInfo = [
 
 export default function ContactSection() {
   const { toast } = useToast();
+  const [isPending, setIsPending] = useState(false);
 
-  const form = useForm<z.infer<typeof contactSchema>>({
-    resolver: zodResolver(contactSchema),
+  const form = useForm<yup.InferType<typeof contactSchema>>({
+    resolver: yupResolver(contactSchema),
     defaultValues: {
       name: "",
       email: "",
@@ -41,29 +43,49 @@ export default function ContactSection() {
   const {
     formState: { isSubmitting },
     reset,
+    setError,
   } = form;
 
-  async function onSubmit(values: z.infer<typeof contactSchema>) {
-    const result = await submitContactForm(values);
-
-    if (result.success) {
-      toast({
-        title: "Message Sent!",
-        description: result.message,
-      });
-      reset();
-    } else {
+  const onSubmit = async (data: yup.InferType<typeof contactSchema>) => {
+    setIsPending(true);
+    try {
+      const result = await submitContactForm(data);
+      if (result.success) {
+        toast({
+          title: "Message Sent!",
+          description: result.message,
+        });
+        reset();
+      } else {
+        if (result.errors) {
+          Object.keys(result.errors).forEach((key) => {
+            const field = key as keyof yup.InferType<typeof contactSchema>;
+            const message = result.errors?.[field]?.[0];
+            if (message) {
+              setError(field, { type: "manual", message });
+            }
+          });
+        }
+        toast({
+          variant: "destructive",
+          title: "Oops! Something went wrong.",
+          description: result.message,
+        });
+      }
+    } catch (error) {
       toast({
         variant: "destructive",
         title: "Oops! Something went wrong.",
-        description: result.message,
+        description: "An unexpected error occurred. Please try again later.",
       });
+    } finally {
+      setIsPending(false);
     }
-  }
+  };
 
   return (
     <section id="contact" className="relative overflow-hidden py-16 md:py-24 min-h-screen flex items-center">
-       <div aria-hidden="true" className="absolute inset-0 -z-10">
+      <div aria-hidden="true" className="absolute inset-0 -z-10">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40rem] h-[40rem] bg-gradient-to-br from-primary/10 to-accent/10 rounded-full blur-3xl opacity-50" />
       </div>
       <div className="container mx-auto px-4">
@@ -75,7 +97,7 @@ export default function ContactSection() {
         </div>
         <div className="grid lg:grid-cols-5 gap-8 lg:gap-12">
           <div className="lg:col-span-2 space-y-6 sm:space-y-8 animate-in fade-in slide-in-from-left-10 duration-500">
-             {contactInfo.map((item) => (
+            {contactInfo.map((item) => (
               <div key={item.label} className="flex items-start gap-4">
                 <div className="bg-primary/10 p-3 rounded-full">{item.icon}</div>
                 <div>
@@ -98,7 +120,7 @@ export default function ContactSection() {
               <CardTitle className="font-headline text-2xl flex items-center gap-2">
                 <Send className="h-6 w-6" /> Send a Message
               </CardTitle>
-              <CardDescription>I'll get back to you as soon as possible.</CardDescription>
+              <CardDescription>I'''ll get back to you as soon as possible.</CardDescription>
             </CardHeader>
             <CardContent>
               <Form {...form}>
@@ -136,14 +158,14 @@ export default function ContactSection() {
                       <FormItem>
                         <FormLabel>Your Message</FormLabel>
                         <FormControl>
-                          <Textarea placeholder="Hi, I'd like to talk about..." rows={5} {...field} />
+                          <Textarea placeholder="Hi, I'''d like to talk about..." rows={5} {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
                     )}
                   />
-                  <Button type="submit" className="w-full text-white" disabled={isSubmitting}>
-                    {isSubmitting ? "Sending..." : "Send Message"}
+                  <Button type="submit" className="w-full text-white" disabled={isSubmitting || isPending}>
+                    {isPending ? "Sending..." : "Send Message"}
                   </Button>
                 </form>
               </Form>

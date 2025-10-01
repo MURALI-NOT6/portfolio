@@ -3,8 +3,8 @@ import './globals.css';
 import AppWrapper from './AppWrapper';
 
 export const metadata: Metadata = {
-  title: 'PortfolioPro - Your Professional Portfolio',
-  description: 'Create and showcase your professional portfolio with PortfolioPro.',
+  title: 'PortfolioPro - Muralidharan',
+  description: 'A professional portfolio website showcasing the projects and skills of Muralidharan, a passionate developer.',
 };
 
 export default function RootLayout({
