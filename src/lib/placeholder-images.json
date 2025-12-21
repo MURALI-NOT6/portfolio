@@ -87,9 +87,9 @@
     },
     {
       "id": "project-12",
-      "description": "A CMS website for a corporation.",
+      "description": "A web application for financial services.",
       "imageUrl": "https://picsum.photos/seed/project12/600/400",
-      "imageHint": "corporate website"
+      "imageHint": "financial app"
     },
     {
       "id": "project-13",

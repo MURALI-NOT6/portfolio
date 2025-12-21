@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Button } from "./button";
+import { buttonVariants } from "./button";
+import { cn } from "@/lib/utils";
 
 interface WelcomeOverlayProps {
   onEnter: () => void;
@@ -69,16 +70,18 @@ const WelcomeOverlay: React.FC<WelcomeOverlayProps> = ({ onEnter }) => {
           Where innovation meets design to development. Explore my projects and see how creativity transforms ideas into meaningful digital experiences.
         </motion.p>
         <motion.div variants={itemVariants} className="flex justify-center">
-          <Button
+          <motion.button
             onClick={onEnter}
-            className="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-11 rounded-md px-8 text-white flex items-center gap-2"
+            className={cn(
+              buttonVariants({ variant: "default", size: "lg" }),
+              "text-white flex items-center gap-2"
+            )}
             whileHover={{ scale: 1.05, boxShadow: "0px 0px 15px rgba(168, 85, 247, 0.8)" }}
             whileTap={{ scale: 0.95 }}
             transition={{ type: "spring", stiffness: 400, damping: 17 }}
           >
-            {/* <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-music"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg> */}
             About Me
-          </Button>
+          </motion.button>
         </motion.div>
       </motion.div>
     </motion.div>

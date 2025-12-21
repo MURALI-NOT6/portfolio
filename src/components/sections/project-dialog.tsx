@@ -16,19 +16,19 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle } from "lucide-react";
 import type { ImagePlaceholder } from "@/lib/placeholder-images";
 
-type Project = {
-    id: string;
-    title: string;
-    year: string;
-    type: string;
-    description: string;
-    longDescription?: string;
-    responsibilities?: string[];
-    tags: string[];
-    useCases?: string[];
-    liveUrl: string;
-    mediaType?: 'image' | 'video';
-    mediaUrl?: string;
+export type Project = {
+  id: string;
+  title: string;
+  year: string;
+  type: string;
+  description: string;
+  longDescription?: string;
+  responsibilities?: string[];
+  tags: string[];
+  useCases?: string[];
+  liveUrl: string;
+  mediaType?: 'image' | 'video';
+  mediaUrl?: string;
 }
 
 type ProjectDialogProps = {
@@ -39,14 +39,14 @@ type ProjectDialogProps = {
 
 export function ProjectDialog({ project, projectImage, children }: ProjectDialogProps) {
   const displayMedia = project.mediaType && project.mediaUrl;
-  
+
   return (
     <Dialog>
       <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent className="sm:max-w-[800px] max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="font-headline text-3xl">{project.title}</DialogTitle>
-          <DialogDescription asChild>
+          <DialogDescription>
             <div className="flex items-center gap-2 mt-1">
               <Badge variant="outline">{project.year}</Badge>
               <Badge variant="secondary">{project.type}</Badge>
@@ -74,16 +74,16 @@ export function ProjectDialog({ project, projectImage, children }: ProjectDialog
                 />
               )
             ) : projectImage ? (
-                <Image
-                    src={projectImage.imageUrl}
-                    alt={project.title}
-                    fill
-                    className="object-cover"
-                    data-ai-hint={projectImage.imageHint}
-                />
+              <Image
+                src={projectImage.imageUrl}
+                alt={project.title}
+                fill
+                className="object-cover"
+                data-ai-hint={projectImage.imageHint}
+              />
             ) : null}
           </div>
-          
+
           <div className="space-y-4">
             <h3 className="font-semibold text-lg border-b pb-2">About this project</h3>
             <p className="text-muted-foreground">{project.longDescription || project.description}</p>
@@ -106,9 +106,9 @@ export function ProjectDialog({ project, projectImage, children }: ProjectDialog
           <div className="space-y-4">
             <h3 className="font-semibold text-lg border-b pb-2">Techniques and Tools</h3>
             <div className="flex flex-wrap gap-2">
-                {project.tags.map(tag => (
-                    <Badge key={tag} variant="secondary">{tag}</Badge>
-                ))}
+              {project.tags.map(tag => (
+                <Badge key={tag} variant="secondary">{tag}</Badge>
+              ))}
             </div>
           </div>
 
@@ -126,9 +126,9 @@ export function ProjectDialog({ project, projectImage, children }: ProjectDialog
         <DialogFooter>
           {project.liveUrl && project.liveUrl !== "#" && (
             <Button asChild>
-                <Link href={project.liveUrl} target="_blank">
-                    Visit Live Site <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
+              <Link href={project.liveUrl} target="_blank">
+                Visit Live Site <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
             </Button>
           )}
         </DialogFooter>

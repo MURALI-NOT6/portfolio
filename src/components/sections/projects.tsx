@@ -8,7 +8,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription }
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { ArrowRight, ExternalLink, Plus } from 'lucide-react';
-import { ProjectDialog } from './project-dialog';
+import { ProjectDialog, type Project } from './project-dialog';
 import alpha from '../../assets/alpha.png';
 import fence from '../../assets/fence.png';
 import autoPost from '../../assets/autopost.png';
@@ -20,53 +20,122 @@ import govt from '../../assets/govt.png';
 import nfticket from '../../assets/nfticket.png';
 import humAine from '../../assets/humAine.png';
 import metadesk from '../../assets/metadesk.png';
+import speedTread from '../../assets/speed-tread.png';
+import project1 from '../../assets/project-1.svg';
 
-const allProjects = [
+const allProjects: Project[] = [
+  {
+    id: "project-renzy",
+    title: "Renzy",
+    year: "2025",
+    type: "React web application",
+    description: "Developed a web-based FinTech application that allows users in the United States to pay rent using credit cards.",
+    longDescription: "Developed a web-based FinTech application that allows users in the United States to pay rent using credit cards. Enabled rent payments via direct bank transfers to landlord accounts or by mailing physical rent checks.",
+    responsibilities: [
+      "Designed and developed a responsive frontend using React.js.",
+      "Integrated frontend with NestJS backend APIs for secure and reliable transaction processing.",
+      "Owned UI implementation, API integration, and frontend feature development.",
+      "Collaborated closely with the QA team to identify, debug, and resolve functional and performance issues.",
+      "Worked with cross-functional teams (backend, QA, product, stakeholders) to ensure smooth delivery within timelines and scope.",
+      "Contributed to improving user experience and payment flow reliability through iterative enhancements."
+    ],
+    tags: ["React.js", "NestJS", "FinTech", "Payments", "Agile"],
+    useCases: ["Rent Payments", "Credit Card Optimization", "Automated Bank Transfers"],
+    liveUrl: "#",
+    mediaType: "image",
+    mediaUrl: project1
+  },
+  {
+    id: "project-cybersafe",
+    title: "CyberSafe Advisor",
+    year: "2025",
+    type: "Next and AI web application",
+    description: "Built an AI-driven web application that helps individuals who face cyber scams or online incidents and are unsure about the next steps to take.",
+    longDescription: "Built an AI-driven web application that helps individuals who face cyber scams or online incidents and are unsure about the next steps to take. Provides users with step-by-step guidance on incident response, prevention of future attacks, and how to report cyber crimes. Includes sample FIR (First Information Report) formats and official reporting guidance to support users during real-world cyber incidents.",
+    responsibilities: [
+      "Designed and developed the frontend application using Next.js, ensuring a user-friendly and accessible experience.",
+      "Integrated the application with Gemini AI models to generate contextual, real-time advice based on the user’s reported issue.",
+      "Built AI interaction flows to provide: Recommended next actions, Preventive measures to avoid future incidents, Guidance on legal reporting procedures",
+      "Owned frontend architecture, UI development, and AI model integration.",
+      "Led testing, debugging, and issue resolution to ensure reliability and accuracy of AI-generated responses.",
+      "Designed the end-to-end technical architecture, enabling scalable and modular AI pipelines for real-time content analysis.",
+      "Led deployment and delivery, aligning technical outcomes with stakeholder and industry-specific requirements.",
+      "Delivered a high-impact solution supporting digital trust, misinformation prevention, and cyber safety across multiple sectors."
+    ],
+    tags: ["Next.js", "TypeScript", "TailwindCSS", "Gemini AI", "Genkit"],
+    useCases: ["Incident Response", "Cyber Safety", "Legal Reporting Guidance"],
+    liveUrl: "#",
+    mediaType: "image",
+    mediaUrl: project1
+  },
   {
     id: "project-1",
+    title: "Speed Tread",
+    year: "2025",
+    type: "React web application",
+    description: "Developed a web-based application to manage financial transactions, currency conversions, and training workflows for users across multiple time zones. Designed to support role-based access control, allowing different user roles to access specific screens, modules, and features. Enabled seamless usage by global users, handling time-zone differences and real-time data consistency.",
+    longDescription: "Developed a web-based application to manage financial transactions, currency conversions, and training workflows for users across multiple time zones. Designed to support role-based access control, allowing different user roles to access specific screens, modules, and features. Enabled seamless usage by global users, handling time-zone differences and real-time data consistency.",
+    responsibilities: [
+      "Designed and developed the frontend UI using React.js, ensuring usability across regions and time zones.",
+      "Implemented API integration to support transaction processing, currency conversion, and training data management.",
+      "Built role-based access control (RBAC), restricting screens and features based on user roles.",
+      "Led and coordinated Frontend, Backend, and QA teams, ensuring smooth collaboration and timely delivery.",
+      "Planned and delivered sprint tasks, collected QA feedback, and resolved issues aligned with release timelines.",
+      "Provided production support, quickly addressing live issues and ensuring system stability.",
+      "Collaborated with DevOps teams to support deployments across development, staging, and production environments.",
+      "Contributed to AWS-based deployments, supporting scalability and reliability."
+    ],
+    tags: ["React.js", "API integration", "Role-based access management", "AWS", "CI/CD", "Agile"],
+    useCases: [],
+    liveUrl: "#",
+    mediaType: "image",
+    mediaUrl: speedTread
+  },
+  {
+    id: "project-2",
     title: "HumAine",
     year: "2025",
     type: "Web Application",
     description: "Developed a multi-content authenticity analysis tool for text, images, and videos using Next.js, TypeScript, and Google Genkit. This platform serves various sectors including media, marketing, and cybersecurity. Delivered business value in media, marketing, education, cybersecurity, and HR.",
     longDescription: "Built a powerful AI-driven platform that detects and verifies the authenticity of multiple content types—including text, images, and videos—to support industries such as media, marketing, education, cybersecurity, and HR. The platform was developed using Next.js as a web application.",
     responsibilities: [
-        "Led R&D efforts focused on AI-based detection of fake or manipulated content (text, images, and videos), ensuring high accuracy and reliability.",
-        "Designed the architecture and end-to-end technical strategy to support scalable and modular AI pipelines for real-time content analysis.",
-        "Integrated Gemini AI (via Google Genkit) to handle advanced detection tasks such as:AI-generated text classification, Deepfake or altered image detection, Video authenticity analysis",
-        "Developed core application features using Next.js, TypeScript, and TailwindCSS, ensuring a responsive and user-friendly interface.",
-        "Led deployment and delivery of the project, aligning technical outcomes with stakeholder and industry-specific needs.",
-        "Delivered a high-value solution used across various sectors to combat misinformation, ensure content integrity, and support digital trust."
+      "Led R&D efforts focused on AI-based detection of fake or manipulated content (text, images, and videos), ensuring high accuracy and reliability.",
+      "Designed the architecture and end-to-end technical strategy to support scalable and modular AI pipelines for real-time content analysis.",
+      "Integrated Gemini AI (via Google Genkit) to handle advanced detection tasks such as:AI-generated text classification, Deepfake or altered image detection, Video authenticity analysis",
+      "Developed core application features using Next.js, TypeScript, and TailwindCSS, ensuring a responsive and user-friendly interface.",
+      "Led deployment and delivery of the project, aligning technical outcomes with stakeholder and industry-specific needs.",
+      "Delivered a high-value solution used across various sectors to combat misinformation, ensure content integrity, and support digital trust."
     ],
     tags: ["Next.js", "Gemini AI", "TypeScript", "TailwindCSS", "Shadcn UI"],
     useCases: ["Media validation", "content moderation", "e-learning integrity", "brand safety", "HR candidate screening"],
     liveUrl: "#",
-    mediaType: "image",
+    mediaType: "image" as const,
     mediaUrl: humAine,
   },
   {
-    id: "project-2",
+    id: "project-3",
     title: "Auto Post",
     year: "2025",
     type: "Web Application",
     description: "Built a web application for social media automation that integrates AI (Gemini) and n8n workflows. The application can generate content and images automatically, or allow users to manually add post details, and then schedule or post directly to multiple social networks.",
     longDescription: "Built a web application for social media automation that integrates AI (Gemini) and n8n workflows. The application can generate content and images automatically, or allow users to manually add post details, and then schedule or post directly to multiple social networks.",
     responsibilities: [
-        "Led the research and development (R&D) efforts for this project, focusing on the integration of AI and automation to create a seamless user experience.",
-        "Architected the application and designed its overall flow, ensuring an efficient, scalable, and intuitive system for users.",
-        "Developed the AI-powered features using Gemini AI, enabling automatic content generation, including text and images, based on user-defined themes or keywords.",
-        "Integrated n8n to automate backend workflows, allowing the application to schedule and post directly to platforms like Facebook, Twitter, LinkedIn, etc., without manual intervention.",
-        "Managed project progress by tracking development milestones, ensuring alignment with business objectives, and delivering iterative improvements.",
-        "Oversaw testing and debugging phases, addressing issues related to integration between AI and social media APIs, as well as enhancing the overall user experience.",
-        "Delivered regular updates and progress reports, ensuring stakeholders were aligned on the status and improvements made to the platform."
+      "Led the research and development (R&D) efforts for this project, focusing on the integration of AI and automation to create a seamless user experience.",
+      "Architected the application and designed its overall flow, ensuring an efficient, scalable, and intuitive system for users.",
+      "Developed the AI-powered features using Gemini AI, enabling automatic content generation, including text and images, based on user-defined themes or keywords.",
+      "Integrated n8n to automate backend workflows, allowing the application to schedule and post directly to platforms like Facebook, Twitter, LinkedIn, etc., without manual intervention.",
+      "Managed project progress by tracking development milestones, ensuring alignment with business objectives, and delivering iterative improvements.",
+      "Oversaw testing and debugging phases, addressing issues related to integration between AI and social media APIs, as well as enhancing the overall user experience.",
+      "Delivered regular updates and progress reports, ensuring stakeholders were aligned on the status and improvements made to the platform."
     ],
     tags: ["Next.js", "Gemini AI", "n8n", "AWS", "TypeScript", "TailwindCSS"],
     useCases: ["Social Media Automation", "Content Generation", "Workflow Integration"],
     liveUrl: "http://autopost.yenmin.in",
-    mediaType: "image",
+    mediaType: "image" as const,
     mediaUrl: autoPost,
   },
   {
-    id: "project-3",
+    id: "project-4",
     title: "GOVT",
     year: "2024",
     type: "Web Site",
@@ -83,11 +152,11 @@ const allProjects = [
     tags: ["Wordpress", "CSS", "GSAP", "Javascript"],
     useCases: [],
     liveUrl: "#",
-    mediaType: "image",
+    mediaType: "image" as const,
     mediaUrl: govt
   },
   {
-    id: "project-4",
+    id: "project-5",
     title: "Alpha Deserve",
     year: "2024",
     type: "Web Site",
@@ -101,11 +170,11 @@ const allProjects = [
     tags: ["React JS", "HTML", "CSS", "Javascript"],
     useCases: [],
     liveUrl: "https://alphadeserve.com/",
-    mediaType: "image",
+    mediaType: "image" as const,
     mediaUrl: alpha
   },
   {
-    id: "project-5",
+    id: "project-6",
     title: "Heathhouseprepschool",
     year: "2024",
     type: "Web Site",
@@ -119,11 +188,11 @@ const allProjects = [
     tags: ["WordPress", "Divi Builder", "HTML", "CSS", "UI Developer"],
     useCases: [],
     liveUrl: "https://heathhouseprepschool.com",
-    mediaType: "image",
+    mediaType: "image" as const,
     mediaUrl: heathhouseprepschool,
   },
   {
-    id: "project-6",
+    id: "project-7",
     title: "Vikaasa",
     year: "2024",
     type: "Web Site",
@@ -136,12 +205,12 @@ const allProjects = [
     ],
     tags: ["Wordpress", "Divi Builder", "UI Developer"],
     useCases: [],
-      liveUrl: "https://vikaasa.org",
-    mediaType: "image",
+    liveUrl: "https://vikaasa.org",
+    mediaType: "image" as const,
     mediaUrl: vikaasa,
   },
   {
-    id: "project-7",
+    id: "project-8",
     title: "Emirates American School",
     year: "2024",
     type: "Web Site",
@@ -155,11 +224,11 @@ const allProjects = [
     tags: ["HTML", "CSS", "JQuery", "Git", "UI Developer"],
     useCases: [],
     liveUrl: "https://eas.deweyolivia.work",
-    mediaType: "image",
+    mediaType: "image" as const,
     mediaUrl: emiratesAmericanSchool,
   },
   {
-    id: "project-8",
+    id: "project-9",
     title: "visionblox",
     year: "2024",
     type: "Web Site",
@@ -173,11 +242,11 @@ const allProjects = [
     tags: ["Wordpress", "Divi Builder", "UI Developer"],
     useCases: [],
     liveUrl: "https://visionblox.com/",
-    mediaType: "image",
+    mediaType: "image" as const,
     mediaUrl: visionblox
   },
   {
-    id: "project-9",
+    id: "project-10",
     title: "Fenceabroad",
     year: "2024",
     type: "Web Site",
@@ -191,11 +260,11 @@ const allProjects = [
     tags: ["Wordpress", "Divi Builder", "UI Developer"],
     useCases: [],
     liveUrl: "https://www.fenceabroad.com/",
-     mediaType: "image",
+    mediaType: "image" as const,
     mediaUrl: fence
   },
   {
-    id: "project-10",
+    id: "project-11",
     title: "NFTICKET",
     year: "2023",
     type: "Web3-Web Site",
@@ -209,11 +278,11 @@ const allProjects = [
     tags: ["React JS", "Redux", "Mindbase", "Metamask"],
     useCases: [],
     liveUrl: "#",
-    mediaType: "image",
+    mediaType: "image" as const,
     mediaUrl: nfticket
   },
   {
-    id: "project-11",
+    id: "project-12",
     title: "Metadesk",
     year: "2023",
     type: "Website & Mobile App",
@@ -224,12 +293,13 @@ const allProjects = [
       "Conducted thorough testing, identified issues, and implemented fixes to maintain smooth functionality.",
       "Connected the backend for both web and mobile apps to a single WooCommerce database, ensuring seamless data synchronization and unified management."
     ],
-    tags: ["React js", "SASS", "Redux" ],
+    tags: ["React js", "SASS", "Redux"],
     useCases: [],
     liveUrl: "#",
-    mediaType: "image",
+    mediaType: "image" as const,
     mediaUrl: metadesk
   },
+
   // {
   //   id: "project-7",
   //   title: "RepGuardian",
@@ -341,9 +411,9 @@ export default function ProjectsSection() {
             return (
               <ProjectDialog key={project.id} project={project} projectImage={projectImage}>
                 <div className="h-full">
-                  <Card className="group flex flex-col h-full animate-in fade-in zoom-in-95 duration-500 hover:border-primary/50 transition-all ease-in-out hover:-translate-y-2 hover:scale-[1.02] cursor-pointer" style={{'--index': index} as React.CSSProperties}>
+                  <Card className="group flex flex-col h-full animate-in fade-in zoom-in-95 duration-500 hover:border-primary/50 transition-all ease-in-out hover:-translate-y-2 hover:scale-[1.02] cursor-pointer" style={{ '--index': index } as React.CSSProperties}>
                     {project.mediaType && project.mediaUrl ? (
-                        <div className="aspect-video relative overflow-hidden rounded-t-lg">
+                      <div className="aspect-video relative overflow-hidden rounded-t-lg">
                         {project.mediaType === 'image' ? (
                           <Image
                             src={project.mediaUrl}
@@ -388,7 +458,7 @@ export default function ProjectsSection() {
                         {visibleTags.map(tag => (
                           <Badge key={tag} variant="secondary" className="whitespace-nowrap min-w-0">{tag}</Badge>
                         ))}
-                          {hiddenTagsCount > 0 && (
+                        {hiddenTagsCount > 0 && (
                           <Badge variant="outline" className="whitespace-nowrap min-w-0">+{hiddenTagsCount}</Badge>
                         )}
                       </div>
@@ -396,15 +466,15 @@ export default function ProjectsSection() {
                     <CardFooter>
                       <div className="flex-grow flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-2 sm:gap-4">
                         {project.liveUrl && project.liveUrl !== "#" ? (
-                            <Button variant="outline" size="sm" asChild onClick={(e) => e.stopPropagation()}>
-                                <Link href={project.liveUrl} target="_blank" className="w-full">
-                                    <ExternalLink className="mr-2 h-4 w-4" />
-                                    View Live Site
-                                </Link>
-                            </Button>
+                          <Button variant="outline" size="sm" asChild onClick={(e) => e.stopPropagation()}>
+                            <Link href={project.liveUrl} target="_blank" className="w-full">
+                              <ExternalLink className="mr-2 h-4 w-4" />
+                              View Live Site
+                            </Link>
+                          </Button>
                         ) : <div></div>}
-                          <Button variant="link" className="text-primary hover:text-primary/80 px-0 w-full">
-                            View Details <ArrowRight className="ml-2 h-4 w-4" />
+                        <Button variant="link" className="text-primary hover:text-primary/80 px-0 w-full">
+                          View Details <ArrowRight className="ml-2 h-4 w-4" />
                         </Button>
                       </div>
                     </CardFooter>
