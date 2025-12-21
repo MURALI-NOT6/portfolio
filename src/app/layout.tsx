@@ -3,7 +3,7 @@ import './globals.css';
 import AppWrapper from './AppWrapper';
 
 export const metadata: Metadata = {
-  title: 'PortfolioPro - Muralidharan',
+  title: 'Portfolio - Muralidharan',
   description: 'A professional portfolio website showcasing the projects and skills of Muralidharan, a passionate developer.',
 };
 

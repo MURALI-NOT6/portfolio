@@ -1,4 +1,4 @@
-# **App Name**: PortfolioPro
+# **App Name**: Portfolio
 
 ## Core Features:
 
