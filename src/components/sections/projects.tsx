@@ -443,15 +443,15 @@ export default function ProjectsSection() {
                         />
                       </div>
                     )}
-                    <CardHeader>
-                      <div className="flex justify-between items-start gap-4">
-                        <CardTitle className="font-headline text-xl lg:text-2xl truncate">{project.title}</CardTitle>
-                        <Badge variant="outline" className="flex-shrink-0">{project.year}</Badge>
+                    <CardHeader className="space-y-3 p-4 sm:p-6">
+                      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+                        <CardTitle className="font-headline text-lg sm:text-xl lg:text-2xl line-clamp-1">{project.title}</CardTitle>
+                        <Badge variant="outline" className="text-[10px] sm:text-xs px-2 py-0 sm:py-0.5">{project.year}</Badge>
                       </div>
                       <div className="flex items-center gap-2">
-                        <Badge variant="secondary">{project.type}</Badge>
+                        <Badge variant="secondary" className="text-[10px] sm:text-xs font-normal bg-primary/10 text-primary border-none">{project.type}</Badge>
                       </div>
-                      <CardDescription className="line-clamp-3 pt-2 text-sm">{project.description}</CardDescription>
+                      <CardDescription className="line-clamp-3 text-xs sm:text-sm leading-relaxed">{project.description}</CardDescription>
                     </CardHeader>
                     <CardContent className="flex-grow">
                       <div className="flex flex-wrap gap-2">

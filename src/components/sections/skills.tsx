@@ -49,20 +49,20 @@ const skillsData = [
 
 export default function SkillsSection() {
   return (
-    <section id="skills" className="relative overflow-hidden py-16 md:py-24 animate-in fade-in duration-500 min-h-screen flex items-center">
+    <section id="skills" className="relative overflow-hidden pt-24 pb-12 md:py-24 animate-in fade-in duration-500 min-h-screen flex items-center">
       <div aria-hidden="true" className="absolute inset-0 -z-10">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40rem] h-[40rem] bg-gradient-to-br from-primary/10 to-accent/10 rounded-full blur-3xl opacity-50" />
       </div>
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12 animate-in fade-in slide-in-from-bottom-10 duration-500">
-          <h2 className="font-headline text-3xl md:text-4xl font-bold">Skills & Expertise</h2>
-          <p className="text-muted-foreground mt-2 max-w-2xl mx-auto">
+        <div className="text-center mb-8 sm:mb-12 animate-in fade-in slide-in-from-bottom-10 duration-500">
+          <h2 className="font-headline text-2xl xs:text-3xl md:text-4xl font-bold">Skills & Expertise</h2>
+          <p className="text-xs xs:text-sm sm:text-base text-muted-foreground mt-2 max-w-2xl mx-auto">
             A look at the technologies and tools I work with to bring ideas to life.
           </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-8">
           {skillsData.map((skillCategory, index) => (
-            <Card key={skillCategory.category} className="animate-in fade-in zoom-in-95 duration-500" style={{'--index': index} as React.CSSProperties}>
+            <Card key={skillCategory.category} className="animate-in fade-in zoom-in-95 duration-500" style={{ '--index': index } as React.CSSProperties}>
               <CardHeader>
                 <div className="flex items-center gap-4">
                   {skillCategory.icon}
@@ -73,8 +73,8 @@ export default function SkillsSection() {
                 <div className="flex flex-wrap gap-2">
                   {skillCategory.skills.map((skill) => (
                     <Badge variant="secondary" key={skill.name} className="py-2 px-3 sm:px-4 text-xs sm:text-sm font-normal flex items-center gap-2">
-                       {skill.icon}
-                       {skill.name}
+                      {skill.icon}
+                      {skill.name}
                     </Badge>
                   ))}
                 </div>

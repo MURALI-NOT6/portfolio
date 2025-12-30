@@ -84,13 +84,13 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="relative overflow-hidden py-16 md:py-24 min-h-screen flex items-center">
+    <section id="contact" className="relative overflow-hidden pt-24 pb-12 md:py-24 min-h-screen flex items-center">
       <div aria-hidden="true" className="absolute inset-0 -z-10">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40rem] h-[40rem] bg-gradient-to-br from-primary/10 to-accent/10 rounded-full blur-3xl opacity-50" />
       </div>
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 animate-in fade-in slide-in-from-bottom-10 duration-500">
-          <h2 className="font-headline text-3xl md:text-4xl font-bold">Get In Touch</h2>
+          <h2 className="font-headline text-2xl xs:text-3xl md:text-4xl font-bold">Get In Touch</h2>
           <p className="text-muted-foreground mt-2 max-w-2xl mx-auto">
             Have a project in mind or just want to say hello? Feel free to reach out.
           </p>
@@ -120,7 +120,7 @@ export default function ContactSection() {
               <CardTitle className="font-headline text-2xl flex items-center gap-2">
                 <Send className="h-6 w-6" /> Send a Message
               </CardTitle>
-              <CardDescription>I'''ll get back to you as soon as possible.</CardDescription>
+              <CardDescription>I'll get back to you as soon as possible.</CardDescription>
             </CardHeader>
             <CardContent>
               <Form {...form}>
@@ -158,7 +158,7 @@ export default function ContactSection() {
                       <FormItem>
                         <FormLabel>Your Message</FormLabel>
                         <FormControl>
-                          <Textarea placeholder="Hi, I'''d like to talk about..." rows={5} {...field} />
+                          <Textarea placeholder="Hi, I'd like to talk about..." rows={5} {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
