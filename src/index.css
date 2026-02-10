@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;600&display=swap");
 
 :root {
   --bg-black: #000000;
@@ -9,10 +9,10 @@
   --text-dim: #888888;
   --border-dim: #222222;
   --glitch-speed: 0.2s;
-  
-  --font-mono: 'JetBrains Mono', monospace;
-  --font-ui: 'Orbitron', sans-serif;
-  --font-main: 'Inter', sans-serif;
+
+  --font-mono: "JetBrains Mono", monospace;
+  --font-ui: "Orbitron", sans-serif;
+  --font-main: "Inter", sans-serif;
 }
 
 @property --gradient-angle {
@@ -41,24 +41,34 @@ body {
   -webkit-font-smoothing: antialiased;
   height: 100vh;
   width: 100vw;
-  cursor: crosshair; /* Gaming shooter style cursor */
+  width: 100vw;
+  cursor:
+    url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='16' cy='16' r='2' fill='white'/%3E%3Cpath d='M10 6 H6 V10' stroke='white' stroke-width='2'/%3E%3Cpath d='M22 6 H26 V10' stroke='white' stroke-width='2'/%3E%3Cpath d='M10 26 H6 V22' stroke='white' stroke-width='2'/%3E%3Cpath d='M22 26 H26 V22' stroke='white' stroke-width='2'/%3E%3C/svg%3E")
+      16 16,
+    crosshair;
 }
 
 /* Ensure clickable elements also keep the gaming feel */
-a, button, [role="button"] {
-  cursor: crosshair !important;
+a,
+button,
+[role="button"],
+.pointer-cursor {
+  cursor:
+    url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='16' cy='16' r='2' fill='%23ff003c'/%3E%3Cpath d='M10 6 H6 V10' stroke='%23ff003c' stroke-width='2'/%3E%3Cpath d='M22 6 H26 V10' stroke='%23ff003c' stroke-width='2'/%3E%3Cpath d='M10 26 H6 V22' stroke='%23ff003c' stroke-width='2'/%3E%3Cpath d='M22 26 H26 V22' stroke='%23ff003c' stroke-width='2'/%3E%3C/svg%3E")
+      16 16,
+    pointer !important;
 }
 
 /* Optional: Custom crosshair cursor using SVG if requested later, but CSS crosshair is standard for now */
 
 body::before {
-  content: '';
+  content: "";
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: 
+  background-image:
     linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
   background-size: 50px 50px;
@@ -67,13 +77,17 @@ body::before {
 }
 
 body::after {
-  content: '';
+  content: "";
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at 70% 30%, rgba(255, 0, 60, 0.15) 0%, transparent 60%);
+  background: radial-gradient(
+    circle at 70% 30%,
+    rgba(255, 0, 60, 0.15) 0%,
+    transparent 60%
+  );
   pointer-events: none;
   z-index: -2;
 }
@@ -85,7 +99,7 @@ body::after {
 }
 
 .tech-border::before {
-  content: '';
+  content: "";
   position: absolute;
   top: -1px;
   left: -1px;
@@ -96,7 +110,7 @@ body::after {
 }
 
 .tech-border::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -1px;
   right: -1px;
@@ -107,9 +121,17 @@ body::after {
 }
 
 @keyframes cyber-pulse {
-  0% { box-shadow: 0 0 5px var(--accent-red); }
-  50% { box-shadow: 0 0 20px var(--accent-red), 0 0 10px var(--accent-cyan); }
-  100% { box-shadow: 0 0 5px var(--accent-red); }
+  0% {
+    box-shadow: 0 0 5px var(--accent-red);
+  }
+  50% {
+    box-shadow:
+      0 0 20px var(--accent-red),
+      0 0 10px var(--accent-cyan);
+  }
+  100% {
+    box-shadow: 0 0 5px var(--accent-red);
+  }
 }
 
 .tech-border {
@@ -125,17 +147,31 @@ body::after {
 
 /* Glitch Animation */
 @keyframes glitch {
-  0% { transform: translate(0) }
-  20% { transform: translate(-2px, 2px) }
-  40% { transform: translate(-2px, -2px) }
-  60% { transform: translate(2px, 2px) }
-  80% { transform: translate(2px, -2px) }
-  100% { transform: translate(0) }
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
 }
 
 .glitch-text:hover {
   animation: glitch var(--glitch-speed) infinite;
-  text-shadow: 2px 0 var(--accent-red), -2px 0 var(--accent-cyan);
+  text-shadow:
+    2px 0 var(--accent-red),
+    -2px 0 var(--accent-cyan);
   background-clip: text;
   -webkit-background-clip: text;
 }
@@ -169,7 +205,6 @@ body::after {
   transition: width 0.1s ease-out;
 }
 
-
 /* Desktop Navigation Base */
 .navigation-bar {
   display: flex !important;
@@ -195,7 +230,14 @@ body::after {
   color: rgba(255, 255, 255, 0.9);
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.2s ease;
-  clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+  clip-path: polygon(
+    8px 0,
+    100% 0,
+    100% calc(100% - 8px),
+    calc(100% - 8px) 100%,
+    0 100%,
+    0 8px
+  );
   backdrop-filter: blur(10px);
 }
 
@@ -219,7 +261,7 @@ body::after {
     height: 100vh !important;
     overflow: hidden !important;
   }
-  
+
   .main-layout {
     grid-template-columns: 1fr !important;
     gap: 1rem;
@@ -257,7 +299,6 @@ body::after {
     right: 10px !important;
   }
 
-
   /* Navigation adjustments for mobile */
   .navigation-bar {
     display: none !important;
@@ -267,7 +308,7 @@ body::after {
     top: 0;
     right: 0;
     background: rgba(4, 4, 4, 0.98) !important;
-    background-image: 
+    background-image:
       linear-gradient(rgba(255, 0, 60, 0.03) 1px, transparent 1px),
       linear-gradient(90deg, rgba(255, 0, 60, 0.03) 1px, transparent 1px) !important;
     background-size: 20px 20px !important;
@@ -292,16 +333,28 @@ body::after {
     padding: 1.2rem 1.5rem !important;
     text-align: left !important;
     font-size: 0.85rem !important;
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%) !important;
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% calc(100% - 10px),
+      calc(100% - 10px) 100%,
+      0 100%
+    ) !important;
   }
-  
+
   .nav-button:hover {
     background: rgba(255, 255, 255, 0.1) !important;
   }
 
   @keyframes slideInRight {
-    from { transform: translateX(100%); opacity: 0; }
-    to { transform: translateX(0); opacity: 1; }
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
   }
 }
 
@@ -321,7 +374,7 @@ body::after {
     border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.05);
   }
-  
+
   .hero-content h1 {
     white-space: normal !important;
     text-align: center;
@@ -379,7 +432,6 @@ body::after {
   background: var(--accent-cyan);
 }
 
-
 .loading-text {
   font-family: var(--font-mono);
   font-size: 0.75rem;
@@ -390,8 +442,12 @@ body::after {
 
 /* Animated Gradient Border for Cards */
 @keyframes rotation {
-  0% { --gradient-angle: 0deg; }
-  100% { --gradient-angle: 360deg; }
+  0% {
+    --gradient-angle: 0deg;
+  }
+  100% {
+    --gradient-angle: 360deg;
+  }
 }
 
 .cyber-border-animated {
@@ -404,7 +460,7 @@ body::after {
   position: absolute;
   inset: 0;
   padding: 2px; /* Thickness of border */
-  border-radius: inherit; 
+  border-radius: inherit;
   background: conic-gradient(
     from var(--gradient-angle),
     var(--accent-red),
@@ -412,11 +468,11 @@ body::after {
     var(--accent-red)
   );
   animation: rotation 4s linear infinite;
-  -webkit-mask: 
-    linear-gradient(#fff 0 0) content-box, 
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
-  mask: 
-    linear-gradient(#fff 0 0) content-box, 
+  mask:
+    linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
@@ -450,21 +506,31 @@ body::after {
 
 /* Autofill Hack */
 .cyber-input:-webkit-autofill,
-.cyber-input:-webkit-autofill:hover, 
-.cyber-input:-webkit-autofill:focus, 
-.cyber-input:-webkit-autofill:active{
-    -webkit-box-shadow: 0 0 0 30px #050505 inset !important;
-    -webkit-text-fill-color: var(--text-white) !important;
-    transition: background-color 5000s ease-in-out 0s;
-    caret-color: var(--text-white);
+.cyber-input:-webkit-autofill:hover,
+.cyber-input:-webkit-autofill:focus,
+.cyber-input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #050505 inset !important;
+  -webkit-text-fill-color: var(--text-white) !important;
+  transition: background-color 5000s ease-in-out 0s;
+  caret-color: var(--text-white);
 }
 
 /* System Image Scan Animation */
 @keyframes scan-vertical {
-  0% { top: 0; opacity: 0; }
-  10% { opacity: 1; }
-  90% { opacity: 1; }
-  100% { top: 100%; opacity: 0; }
+  0% {
+    top: 0;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
 }
 
 .image-tech-wrapper {
@@ -496,19 +562,51 @@ body::after {
   pointer-events: none;
 }
 
-.corner-bracket.tl { top: 10px; left: 10px; border-right: none; border-bottom: none; }
-.corner-bracket.tr { top: 10px; right: 10px; border-left: none; border-bottom: none; }
-.corner-bracket.bl { bottom: 10px; left: 10px; border-right: none; border-top: none; }
-.corner-bracket.br { bottom: 10px; right: 10px; border-left: none; border-top: none; }
+.corner-bracket.tl {
+  top: 10px;
+  left: 10px;
+  border-right: none;
+  border-bottom: none;
+}
+.corner-bracket.tr {
+  top: 10px;
+  right: 10px;
+  border-left: none;
+  border-bottom: none;
+}
+.corner-bracket.bl {
+  bottom: 10px;
+  left: 10px;
+  border-right: none;
+  border-top: none;
+}
+.corner-bracket.br {
+  bottom: 10px;
+  right: 10px;
+  border-left: none;
+  border-top: none;
+}
 
 .image-tech-wrapper:hover .corner-bracket {
   border-color: var(--accent-cyan);
 }
 
-.image-tech-wrapper:hover .corner-bracket.tl { top: 5px; left: 5px; }
-.image-tech-wrapper:hover .corner-bracket.tr { top: 5px; right: 5px; }
-.image-tech-wrapper:hover .corner-bracket.bl { bottom: 5px; left: 5px; }
-.image-tech-wrapper:hover .corner-bracket.br { bottom: 5px; right: 5px; }
+.image-tech-wrapper:hover .corner-bracket.tl {
+  top: 5px;
+  left: 5px;
+}
+.image-tech-wrapper:hover .corner-bracket.tr {
+  top: 5px;
+  right: 5px;
+}
+.image-tech-wrapper:hover .corner-bracket.bl {
+  bottom: 5px;
+  left: 5px;
+}
+.image-tech-wrapper:hover .corner-bracket.br {
+  bottom: 5px;
+  right: 5px;
+}
 
 .system-status-overlay {
   position: absolute;
@@ -517,7 +615,7 @@ body::after {
   font-family: var(--font-mono);
   font-size: 0.7rem;
   color: var(--accent-cyan);
-  background: rgba(0,0,0,0.8);
+  background: rgba(0, 0, 0, 0.8);
   padding: 4px 8px;
   border: 1px solid var(--accent-cyan);
   z-index: 6;
