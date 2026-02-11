@@ -137,13 +137,15 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({ onClose, onMinimize }) =>
             .section-layout { 
               display: flex !important; 
               flex-direction: column !important; 
-              overflow-y: auto !important;
+              height: auto !important;
+              overflow: visible !important;
               gap: 20px;
             }
             .custom-scroll { 
                 border-right: none !important; 
                 border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-                overflow-y: visible !important;
+                overflow: visible !important;
+                height: auto !important;
                 flex: none !important;
                 padding: 20px !important;
             }
@@ -156,13 +158,15 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({ onClose, onMinimize }) =>
             }
             .skills-container-inner {
               width: 100% !important;
-              height: 100% !important;
-              min-height: 0 !important;
+              height: auto !important;
+              min-height: auto !important;
               clip-path: none !important;
               padding: 0 !important;
+              overflow: visible !important;
             }
             .section-wrapper {
                padding: 0 !important;
+               height: auto !important;
             }
           }
           .custom-scroll::-webkit-scrollbar {

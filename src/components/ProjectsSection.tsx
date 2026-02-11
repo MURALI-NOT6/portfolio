@@ -283,10 +283,16 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onClose, onMinimize }
             .section-wrapper { padding: 0 !important; }
             .projects-container-inner {
               width: 100% !important;
-              height: 100% !important;
-              min-height: 0 !important;
+              height: auto !important;
+              min-height: auto !important;
               clip-path: none !important;
               padding: 0 !important;
+              overflow: visible !important;
+            }
+            .section-scroll-container {
+               overflow: visible !important;
+               height: auto !important;
+               padding-bottom: 4rem !important;
             }
           }
           @media (max-width: 768px) {

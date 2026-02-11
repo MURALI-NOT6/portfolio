@@ -44,10 +44,16 @@ const AboutSection: React.FC<AboutSectionProps> = ({ onClose, onMinimize }) => {
             .section-wrapper { padding: 0 !important; }
             .about-container-inner {
               width: 100% !important;
-              height: 100% !important;
-              min-height: 0 !important;
+              height: auto !important;
+              min-height: auto !important;
               padding: 0 !important;
               clip-path: none !important;
+              overflow: visible !important;
+            }
+            .section-scroll-container {
+               overflow: visible !important;
+               height: auto !important;
+               padding-bottom: 4rem !important;
             }
           }
           @media (max-width: 768px) {

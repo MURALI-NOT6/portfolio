@@ -227,7 +227,7 @@ const PortfolioMain: React.FC = () => {
                 transition={{ repeat: Infinity, duration: 3, times: [0, 0.1, 0.2, 0.3, 1] }}
                 style={{ 
                   fontFamily: 'var(--font-ui)', 
-                  fontSize: 'clamp(2rem, 10vw, 4rem)', 
+                  fontSize: 'clamp(1.5rem, 6vw, 4rem)', 
                   lineHeight: 1,
                   fontWeight: 900,
                   marginBottom: '0.8rem',
@@ -250,10 +250,8 @@ const PortfolioMain: React.FC = () => {
                 marginBottom: '1.5rem',
                 textShadow: '0 2px 4px rgba(0,0,0,0.8)'
               }}>
-                Creative Full Stack Developer skilled in building immersive web experiences. 
-                Blending cyber-aesthetics with robust functionality to create the future of the web.
+                Frontend Developer specializing in modern web technologies, scalable systems, and user-centric digital solutions
               </p>
-
               <div 
                 className="hero-buttons"
                 style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}
