@@ -681,10 +681,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onClose, onMinimize }
                                     color: 'rgba(255, 255, 255, 0.7)',
                                     lineHeight: '1.8',
                                     fontSize: '1.1rem',
-                                    margin: 0,
-                                    lineHeight: '1.8',
-                                    fontSize: '1.1rem',
-                                    margin: 0,
+                                    margin: 0, 
                                     fontFamily: 'var(--font-main)',
                                     wordBreak: 'break-word',
                                     overflowWrap: 'anywhere'
@@ -703,8 +700,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onClose, onMinimize }
                                         textTransform: 'uppercase',
                                         letterSpacing: '2px',
                                         display: 'flex',
-                                        alignItems: 'center',
-                                        alignItems: 'center',
+                                        alignItems: 'center', 
                                         gap: '12px',
                                         flexWrap: 'wrap',
                                         wordBreak: 'break-word'
