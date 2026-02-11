@@ -449,7 +449,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onClose, onMinimize }
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              padding: '1.5rem'
+              padding: 'clamp(0.5rem, 3vw, 1.5rem)'
           }}>
               <motion.div
                   onClick={(e) => e.stopPropagation()}
@@ -598,7 +598,8 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onClose, onMinimize }
                                         lineHeight: '1.1',
                                         letterSpacing: '2px',
                                         textShadow: '0 0 30px rgba(0, 243, 255, 0.4)',
-                                        wordBreak: 'break-word'
+                                        wordBreak: 'break-word',
+                                        overflowWrap: 'anywhere'
                                     }}
                                 >
                                     {selectedProject.title}
@@ -607,7 +608,8 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onClose, onMinimize }
                                     <div style={{ 
                                         display: 'flex', 
                                         alignItems: 'center', 
-                                        gap: '12px' 
+                                        gap: '12px',
+                                        flexWrap: 'wrap'
                                     }}>
                                         <div style={{ width: '40px', height: '1px', background: 'var(--accent-cyan)' }}></div>
                                         <span style={{ 
@@ -669,7 +671,9 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onClose, onMinimize }
                                     letterSpacing: '2px',
                                     display: 'flex',
                                     alignItems: 'center',
-                                    gap: '10px'
+                                    gap: '10px',
+                                    flexWrap: 'wrap',
+                                    wordBreak: 'break-word'
                                 }}>
                                     <Code size={18} color="var(--accent-red)" /> MISSION_METADATA.LOG
                                 </h3>
@@ -678,7 +682,12 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onClose, onMinimize }
                                     lineHeight: '1.8',
                                     fontSize: '1.1rem',
                                     margin: 0,
-                                    fontFamily: 'var(--font-main)'
+                                    lineHeight: '1.8',
+                                    fontSize: '1.1rem',
+                                    margin: 0,
+                                    fontFamily: 'var(--font-main)',
+                                    wordBreak: 'break-word',
+                                    overflowWrap: 'anywhere'
                                 }}>
                                     {selectedProject.description}
                                 </p>
@@ -695,7 +704,10 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onClose, onMinimize }
                                         letterSpacing: '2px',
                                         display: 'flex',
                                         alignItems: 'center',
-                                        gap: '12px'
+                                        alignItems: 'center',
+                                        gap: '12px',
+                                        flexWrap: 'wrap',
+                                        wordBreak: 'break-word'
                                     }}>
                                         <Github size={18} color="var(--accent-cyan)" /> SYSTEM_DIRECTIVES
                                     </h3>
@@ -746,7 +758,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onClose, onMinimize }
                                         whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(255, 0, 60, 0.5)' }}
                                         whileTap={{ scale: 0.95 }}
                                         style={{
-                                            padding: '1.2rem 3rem',
+                                            padding: 'clamp(0.8rem, 2vw, 1.2rem) clamp(1rem, 3vw, 3rem)',
                                             background: 'var(--accent-red)',
                                             color: '#000',
                                             textDecoration: 'none',
@@ -757,7 +769,10 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onClose, onMinimize }
                                             fontFamily: 'var(--font-ui)',
                                             textTransform: 'uppercase',
                                             letterSpacing: '2px',
-                                            clipPath: 'polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px)'
+                                            clipPath: 'polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px)',
+                                            textAlign: 'center',
+                                            justifyContent: 'center',
+                                            flexWrap: 'wrap'
                                         }}
                                     >
                                         <ExternalLink size={20} /> INITIALIZE_LIVE_SYSTEM

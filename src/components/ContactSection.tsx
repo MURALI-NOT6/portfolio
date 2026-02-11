@@ -243,6 +243,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ onClose, onMinimize }) 
             }
             .section-scroll-container {
                overflow: visible !important;
+               overflow-x: hidden !important;
                height: auto !important;
                padding-bottom: 6rem !important;
             }
@@ -363,8 +364,8 @@ const ContactSection: React.FC<ContactSectionProps> = ({ onClose, onMinimize }) 
         }}>
             <div style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
-                gap: '4rem'
+                gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+                gap: '2rem'
             }}>
                 {/* Contact Info (Left Side) */}
                 <motion.div
@@ -437,6 +438,11 @@ const ContactSection: React.FC<ContactSectionProps> = ({ onClose, onMinimize }) 
                                 className={`cyber-input ${errors.name ? 'error' : ''}`}
                                 autoComplete="off"
                             />
+                            {errors.name && (
+                                <span className="error-text">
+                                    <ShieldAlert size={12} /> {errors.name.message}
+                                </span>
+                            )}
                         </div>
 
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
@@ -456,6 +462,11 @@ const ContactSection: React.FC<ContactSectionProps> = ({ onClose, onMinimize }) 
                                 className={`cyber-input ${errors.email ? 'error' : ''}`}
                                 autoComplete="off"
                             />
+                            {errors.email && (
+                                <span className="error-text">
+                                    <ShieldAlert size={12} /> {errors.email.message}
+                                </span>
+                            )}
                         </div>
 
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
@@ -472,6 +483,11 @@ const ContactSection: React.FC<ContactSectionProps> = ({ onClose, onMinimize }) 
                                 className={`cyber-input ${errors.message ? 'error' : ''}`}
                                 style={{ resize: 'none' }}
                             />
+                            {errors.message && (
+                                <span className="error-text">
+                                    <ShieldAlert size={12} /> {errors.message.message}
+                                </span>
+                            )}
                         </div>
 
                         <motion.button
@@ -480,9 +496,10 @@ const ContactSection: React.FC<ContactSectionProps> = ({ onClose, onMinimize }) 
                             style={{
                                 marginTop: '1rem',
                                 padding: '1.2rem',
-                                background: isSending ? 'rgba(255, 0, 60, 0.05)' : 'rgba(255, 0, 60, 0.1)',
+                                background: isSending ? 'rgba(255, 0, 60, 0.2)' : 'rgba(255, 0, 60, 0.1)',
                                 border: '1px solid var(--accent-red)',
                                 color: 'var(--accent-red)',
+                                opacity: isSending ? 0.7 : 1,
                                 fontFamily: 'var(--font-mono)',
                                 fontWeight: 'bold',
                                 cursor: isSending ? 'not-allowed' : 'pointer',
@@ -527,17 +544,17 @@ const ContactSection: React.FC<ContactSectionProps> = ({ onClose, onMinimize }) 
                         animate={{ scale: 1, opacity: 1 }}
                         exit={{ scale: 0.8, opacity: 0 }}
                         transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                        className="cyber-border-animated"
                         style={{
                             width: 'min(90%, 450px)',
-                            padding: '2px', // Border width
-                            background: `linear-gradient(45deg, transparent 5%, ${statusMessage.type === 'error' ? 'var(--accent-red)' : 'var(--accent-cyan)'} 5%, ${statusMessage.type === 'error' ? 'var(--accent-red)' : 'var(--accent-cyan)'} 10%, transparent 10%, transparent 90%, ${statusMessage.type === 'error' ? 'var(--accent-red)' : 'var(--accent-cyan)'} 90%, ${statusMessage.type === 'error' ? 'var(--accent-red)' : 'var(--accent-cyan)'} 95%, transparent 95%)`,
-                            position: 'relative'
+                            position: 'relative',
+                            background: 'rgba(0, 0, 0, 0.9)'
                         }}
                     >
                          <div style={{
                             background: 'rgba(10, 15, 20, 0.95)',
                             padding: '2rem',
-                            border: `1px solid ${statusMessage.type === 'error' ? 'rgba(255, 0, 60, 0.3)' : 'rgba(0, 243, 255, 0.3)'}`,
+                            border: '1px solid rgba(255, 255, 255, 0.1)',
                             boxShadow: `0 0 30px ${statusMessage.type === 'error' ? 'rgba(255, 0, 60, 0.15)' : 'rgba(0, 243, 255, 0.15)'}`,
                             display: 'flex',
                             flexDirection: 'column',
@@ -722,7 +739,7 @@ const ContactItem: React.FC<{ icon: React.ReactNode, label: string, value: strin
             <div style={{ color: 'var(--accent-cyan)' }}>{icon}</div>
             <div>
                 <div style={{ color: 'var(--accent-red)', fontSize: '0.65rem', fontFamily: 'var(--font-mono)', letterSpacing: '1px' }}>{label}</div>
-                <div style={{ color: 'white', fontFamily: 'var(--font-ui)', fontWeight: 700, fontSize: '0.95rem' }}>{value}</div>
+                <div style={{ color: 'white', fontFamily: 'var(--font-ui)', fontWeight: 700, fontSize: '0.95rem', wordBreak: 'break-word' }}>{value}</div>
             </div>
         </Component>
     );
