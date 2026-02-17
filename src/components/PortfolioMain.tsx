@@ -310,7 +310,7 @@ const PortfolioMain: React.FC = () => {
               <div style={{ textAlign: 'right', display: 'flex', flexDirection: 'column', alignItems: 'flex-end', maxWidth: '400px', marginLeft: 'auto' }}>
                 <div style={{ marginTop: '1rem', opacity: 0.8, fontSize: '0.9rem', textAlign: 'right', fontFamily: 'var(--font-mono)', color: 'var(--accent-red)' }}>
                   SYSTEM STATUS: ONLINE <br/>
-                  LOCATION: SALEM, IND <br/>
+                  LOCATION: CHENNAI, IND <br/>
                   ROLE: FRONTEND DEVELOPER
                 </div>
               </div>
