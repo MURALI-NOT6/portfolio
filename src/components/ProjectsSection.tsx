@@ -318,7 +318,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onClose, onMinimize }
             }
           }
         `}</style>
-        
+
         {/* HUD Top Bar */}
         <div className="hud-header" style={{
           padding: '12px 30px',
@@ -332,80 +332,80 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onClose, onMinimize }
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
             <div style={{ padding: '4px 10px', background: 'var(--accent-red)', color: '#000', fontFamily: 'var(--font-mono)', fontSize: '0.7rem', fontWeight: 900 }}>
-                PROJECT_ARCHIVE
+              PROJECT_ARCHIVE
             </div>
             <div className="hud-timer" style={{ color: 'var(--accent-cyan)', fontFamily: 'var(--font-mono)', fontSize: '0.7rem', letterSpacing: '2px', opacity: 0.8 }}>
-                SEC_LEVEL_UNRESTRICTED // {new Date().getHours()}:{new Date().getMinutes() < 10 ? '0' + new Date().getMinutes() : new Date().getMinutes()}
+              SEC_LEVEL_UNRESTRICTED // {new Date().getHours()}:{new Date().getMinutes() < 10 ? '0' + new Date().getMinutes() : new Date().getMinutes()}
             </div>
           </div>
           <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
             <div className="hud-decoration" style={{ width: '10px', height: '2px', background: 'var(--accent-cyan)' }} />
             <div className="hud-decoration" style={{ width: '30px', height: '2px', background: 'var(--accent-red)' }} />
-            <div  
-                className="terminate-button"
-                style={{ 
-                    cursor: 'pointer', 
-                    opacity: 0.8,
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '5px',
-                    padding: '2px 8px',
-                    border: '1px solid rgba(255, 0, 60, 0.5)',
-                    background: 'rgba(255, 0, 60, 0.1)',
-                    fontSize: '0.6rem',
-                    color: 'var(--accent-red)',
-                    fontFamily: 'var(--font-mono)'
-                }}  
-                onClick={() => { playClickSound(); onClose?.(); }} 
-            > 
-                <span className="terminate-text">TERMINATE</span> <X size={14} color="var(--accent-red)" /> 
-            </div> 
+            <div
+              className="terminate-button"
+              style={{
+                cursor: 'pointer',
+                opacity: 0.8,
+                display: 'flex',
+                alignItems: 'center',
+                gap: '5px',
+                padding: '2px 8px',
+                border: '1px solid rgba(255, 0, 60, 0.5)',
+                background: 'rgba(255, 0, 60, 0.1)',
+                fontSize: '0.6rem',
+                color: 'var(--accent-red)',
+                fontFamily: 'var(--font-mono)'
+              }}
+              onClick={() => { playClickSound(); onClose?.(); }}
+            >
+              <span className="terminate-text">TERMINATE</span> <X size={14} color="var(--accent-red)" />
+            </div>
           </div>
         </div>
 
         {/* Inner Scrollable Container */}
         <div className="section-scroll-container" style={{
-           flex: 1,
-           minHeight: 0,
-           overflowY: 'auto',
-           padding: 'max(1rem, 4vw)',
-           scrollbarWidth: 'none'
+          flex: 1,
+          minHeight: 0,
+          overflowY: 'auto',
+          padding: 'max(1rem, 4vw)',
+          scrollbarWidth: 'none'
         }}>
-            <motion.div
-              initial={{ x: -20, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ delay: 0.2 }}
-              style={{ marginBottom: '1rem' }}
-            >
-              <h2 style={{
-                  fontFamily: 'var(--font-ui)',
-                  fontSize: 'clamp(1.8rem, 6vw, 3.5rem)',
-                  color: 'var(--text-white)',
-                  textTransform: 'uppercase',
-                  lineHeight: 1,
-                  letterSpacing: '2px',
-                  position: 'relative',
-                  display: 'inline-block'
-              }}>
-                <span style={{ color: 'var(--accent-red)' }}>SELECTED</span> PROJECTS
-              </h2>
-            </motion.div>
+          <motion.div
+            initial={{ x: -20, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            style={{ marginBottom: '1rem' }}
+          >
+            <h2 style={{
+              fontFamily: 'var(--font-ui)',
+              fontSize: 'clamp(1.8rem, 6vw, 3.5rem)',
+              color: 'var(--text-white)',
+              textTransform: 'uppercase',
+              lineHeight: 1,
+              letterSpacing: '2px',
+              position: 'relative',
+              display: 'inline-block'
+            }}>
+              <span style={{ color: 'var(--accent-red)' }}>SELECTED</span> PROJECTS
+            </h2>
+          </motion.div>
 
-            <motion.p
+          <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
-            style={{ 
-                color: 'var(--text-dim)', 
-                marginBottom: '2rem',
-                fontFamily: 'var(--font-mono)',
-                fontSize: '0.9rem'
+            style={{
+              color: 'var(--text-dim)',
+              marginBottom: '2rem',
+              fontFamily: 'var(--font-mono)',
+              fontSize: '0.9rem'
             }}
-            >
+          >
             Deploying scalable solutions across the digital frontier.
-            </motion.p>
+          </motion.p>
 
-            <style>{`
+          <style>{`
           .custom-scroll::-webkit-scrollbar { display: none; }
           .projects-grid {
             display: grid;
@@ -420,474 +420,470 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onClose, onMinimize }
             }
           }
         `}</style>
-            <div style={{
+          <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
             gap: 'max(1rem, 2vw)',
-            }}>
+          }}>
             {projects.map((project, i) => (
-                <ProjectCard key={i} project={project} index={i} onClick={() => setSelectedProject(project)} />
+              <ProjectCard key={i} project={project} index={i} onClick={() => setSelectedProject(project)} />
             ))}
-            </div>
+          </div>
         </div>
 
       </motion.div>
 
       {/* Project Details Modal */}
       {selectedProject && createPortal(
-          <div 
-            onClick={() => { playClickSound(); setSelectedProject(null); }}
-            style={{
-              position: 'fixed',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '100%',
-              background: 'rgba(0, 0, 0, 0.92)',
-              backdropFilter: 'blur(20px)',
-              zIndex: 200,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              padding: 'clamp(0.5rem, 3vw, 1.5rem)'
+        <div
+          onClick={() => { playClickSound(); setSelectedProject(null); }}
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            background: 'rgba(0, 0, 0, 0.92)',
+            backdropFilter: 'blur(20px)',
+            zIndex: 200,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: 'clamp(0.5rem, 3vw, 1.5rem)'
           }}>
-              <motion.div
-                  onClick={(e) => e.stopPropagation()}
-                  initial={{ opacity: 0, scale: 0.95, y: 20 }}
-                  animate={{ opacity: 1, scale: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.3 }}
-                  className="cyber-border-animated"
-                  style={{
-                      background: 'linear-gradient(135deg, rgba(8, 8, 8, 0.98) 0%, rgba(15, 15, 15, 0.99) 100%)',
-                      maxWidth: '1000px',
-                      width: '100%',
-                      maxHeight: '90vh',
-                      overflow: 'hidden',
-                      position: 'relative',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      clipPath: 'polygon(30px 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%, 0 30px)',
-                      boxShadow: '0 0 100px rgba(255, 0, 60, 0.1), inset 0 0 40px rgba(0, 243, 255, 0.03)'
-                  }}
-              >
-                  {/* Decorative Elements */}
-                  <div className="corner-bracket tl" style={{ position: 'absolute', top: '15px', left: '15px' }}></div>
-                  <div className="corner-bracket tr" style={{ position: 'absolute', top: '15px', right: '15px' }}></div>
-                  <div className="corner-bracket bl" style={{ position: 'absolute', bottom: '15px', left: '15px' }}></div>
-                  <div className="corner-bracket br" style={{ position: 'absolute', bottom: '15px', right: '15px' }}></div>
+          <motion.div
+            onClick={(e) => e.stopPropagation()}
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ duration: 0.3 }}
+            className="cyber-border-animated"
+            style={{
+              background: 'linear-gradient(135deg, rgba(8, 8, 8, 0.98) 0%, rgba(15, 15, 15, 0.99) 100%)',
+              maxWidth: '1000px',
+              width: '100%',
+              maxHeight: '90vh',
+              overflow: 'hidden',
+              position: 'relative',
+              display: 'flex',
+              flexDirection: 'column',
+              clipPath: 'polygon(30px 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%, 0 30px)',
+              boxShadow: '0 0 100px rgba(255, 0, 60, 0.1), inset 0 0 40px rgba(0, 243, 255, 0.03)'
+            }}
+          >
+            {/* Decorative Elements */}
+            <div className="corner-bracket tl" style={{ position: 'absolute', top: '15px', left: '15px' }}></div>
+            <div className="corner-bracket tr" style={{ position: 'absolute', top: '15px', right: '15px' }}></div>
+            <div className="corner-bracket bl" style={{ position: 'absolute', bottom: '15px', left: '15px' }}></div>
+            <div className="corner-bracket br" style={{ position: 'absolute', bottom: '15px', right: '15px' }}></div>
 
-                  {/* Sticky Header inside Modal */}
+            {/* Sticky Header inside Modal */}
+            <div style={{
+              position: 'relative',
+              padding: 'clamp(0.8rem, 2vw, 1.5rem) clamp(1rem, 3vw, 3rem)',
+              background: 'rgba(10, 10, 10, 0.6)',
+              borderBottom: '1px solid rgba(0, 243, 255, 0.15)',
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              zIndex: 10,
+              backdropFilter: 'blur(10px)',
+              flexDirection: window.innerWidth < 640 ? 'column' : 'row',
+              gap: '1rem'
+            }}>
+              <div style={{
+                fontFamily: 'var(--font-mono)',
+                color: 'var(--accent-cyan)',
+                fontSize: window.innerWidth < 640 ? '0.7rem' : '0.85rem',
+                letterSpacing: '3px',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '10px'
+              }}>
+                <span style={{ width: '4px', height: '4px', background: 'var(--accent-red)', display: 'inline-block' }}></span>
+                CORE_SYSTEM_INTERFACE // {selectedProject.year || '2025'}
+              </div>
+              <button
+                onClick={() => { playClickSound(); setSelectedProject(null); }}
+                style={{
+                  background: 'transparent',
+                  border: '1px solid var(--accent-red)',
+                  color: 'var(--accent-red)',
+                  fontFamily: 'var(--font-mono)',
+                  padding: '0.5rem 1rem',
+                  cursor: 'pointer',
+                  fontSize: '0.7rem',
+                  textTransform: 'uppercase',
+                  letterSpacing: '2px',
+                  transition: 'all 0.3s ease',
+                  clipPath: 'polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px)'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = 'rgba(255, 0, 60, 0.1)';
+                  e.currentTarget.style.boxShadow = '0 0 15px rgba(255, 0, 60, 0.2)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = 'transparent';
+                  e.currentTarget.style.boxShadow = 'none';
+                }}
+              >
+                DISCONNECT [ESC]
+              </button>
+            </div>
+
+            {/* Scrollable Content */}
+            <div
+              className="custom-scrollbar"
+              style={{
+                flex: 1,
+                overflowY: 'auto',
+                padding: 'clamp(1rem, 3vw, 2rem) clamp(1rem, 4vw, 3rem)',
+                position: 'relative'
+              }}
+            >
+              {/* Scanline overlay for the whole content */}
+              <div style={{
+                position: 'absolute',
+                top: 0, left: 0, right: 0, bottom: 0,
+                background: 'repeating-linear-gradient(transparent 0, rgba(0, 243, 255, 0.01) 1px, transparent 2px)',
+                pointerEvents: 'none',
+                zIndex: 2,
+                opacity: 0.5
+              }} />
+
+              {selectedProject.image && (
+                <div className="image-tech-wrapper" style={{
+                  marginBottom: '2.5rem',
+                  border: '1px solid rgba(0, 243, 255, 0.1)',
+                  boxShadow: '0 0 30px rgba(0, 243, 255, 0.05)'
+                }}>
+                  <img
+                    src={selectedProject.image && typeof selectedProject.image === 'object' ? selectedProject.image.src : selectedProject.image}
+                    alt={selectedProject.title}
+                    style={{
+                      width: '100%',
+                      height: 'auto',
+                      display: 'block',
+                      opacity: 0.9,
+                      transition: 'opacity 0.3s ease'
+                    }}
+                  />
+
+                  <div className="scanline-anim"></div>
+                  <div className="corner-bracket tl"></div>
+                  <div className="corner-bracket tr"></div>
+                  <div className="corner-bracket bl"></div>
+                  <div className="corner-bracket br"></div>
+
+                  <div className="system-status-overlay" style={{ opacity: 1, transform: 'none' }}>
+                    <span style={{ color: 'var(--accent-red)' }}>TARGET_ID:</span> {selectedProject.title.toUpperCase()}<br />
+                    <span style={{ color: 'var(--accent-cyan)' }}>ACCESS:</span> GRANTED<br />
+                    <span style={{ color: 'var(--text-dim)' }}>ENCRYPT:</span> 256-BIT
+                  </div>
+                </div>
+              )}
+
+              <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr)', gap: '2.5rem' }}>
+                <div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginBottom: '2rem' }}>
+                    <motion.h2
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      style={{
+                        fontFamily: 'var(--font-ui)',
+                        fontSize: 'clamp(2rem, 8vw, 4rem)',
+                        color: 'var(--text-white)',
+                        margin: 0,
+                        textTransform: 'uppercase',
+                        lineHeight: '1.1',
+                        letterSpacing: '2px',
+                        textShadow: '0 0 30px rgba(0, 243, 255, 0.4)',
+                        wordBreak: 'break-word',
+                        overflowWrap: 'anywhere'
+                      }}
+                    >
+                      {selectedProject.title}
+                    </motion.h2>
+                    {selectedProject.category && (
+                      <div style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '12px',
+                        flexWrap: 'wrap'
+                      }}>
+                        <div style={{ width: '40px', height: '1px', background: 'var(--accent-cyan)' }}></div>
+                        <span style={{
+                          fontFamily: 'var(--font-mono)',
+                          color: 'var(--accent-cyan)',
+                          fontSize: '0.9rem',
+                          letterSpacing: '4px',
+                          textTransform: 'uppercase',
+                          opacity: 0.8
+                        }}>
+                          {selectedProject.category}
+                        </span>
+                      </div>
+                    )}
+                  </div>
+
                   <div style={{
-                      position: 'relative',
-                      padding: 'clamp(0.8rem, 2vw, 1.5rem) clamp(1rem, 3vw, 3rem)',
-                      background: 'rgba(10, 10, 10, 0.6)',
-                      borderBottom: '1px solid rgba(0, 243, 255, 0.15)',
-                      display: 'flex',
-                      justifyContent: 'space-between',
-                      alignItems: 'center',
-                      zIndex: 10,
-                      backdropFilter: 'blur(10px)',
-                      flexDirection: window.innerWidth < 640 ? 'column' : 'row',
-                      gap: '1rem'
+                    display: 'flex',
+                    gap: '1rem',
+                    marginBottom: '2.5rem',
+                    flexWrap: 'wrap'
                   }}>
-                      <div style={{ 
-                          fontFamily: 'var(--font-mono)', 
-                          color: 'var(--accent-cyan)', 
-                          fontSize: window.innerWidth < 640 ? '0.7rem' : '0.85rem', 
-                          letterSpacing: '3px',
+                    {selectedProject.tech.map((t: string) => (
+                      <span key={t} style={{
+                        background: 'rgba(0, 243, 255, 0.05)',
+                        border: '1px solid rgba(0, 243, 255, 0.25)',
+                        padding: '0.5rem 1.2rem',
+                        fontFamily: 'var(--font-mono)',
+                        fontSize: '0.85rem',
+                        color: 'var(--accent-cyan)',
+                        position: 'relative',
+                        overflow: 'hidden',
+                        boxShadow: '0 0 15px rgba(0, 243, 255, 0.05)'
+                      }}>
+                        <div style={{
+                          position: 'absolute',
+                          top: 0, left: 0,
+                          width: '4px', height: '4px',
+                          background: 'var(--accent-red)'
+                        }}></div>
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div style={{
+                    background: 'rgba(255, 255, 255, 0.02)',
+                    padding: '2rem',
+                    borderLeft: '4px solid var(--accent-red)',
+                    position: 'relative',
+                    marginBottom: '2.5rem'
+                  }}>
+                    <h3 style={{
+                      color: 'var(--text-white)',
+                      fontFamily: 'var(--font-ui)',
+                      fontSize: '1.2rem',
+                      marginBottom: '1rem',
+                      textTransform: 'uppercase',
+                      letterSpacing: '2px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '10px',
+                      flexWrap: 'wrap',
+                      wordBreak: 'break-word'
+                    }}>
+                      <Code size={18} color="var(--accent-red)" /> MISSION_METADATA.LOG
+                    </h3>
+                    <p style={{
+                      color: 'rgba(255, 255, 255, 0.7)',
+                      lineHeight: '1.8',
+                      fontSize: '1.1rem',
+                      margin: 0,
+                      fontFamily: 'var(--font-main)',
+                      wordBreak: 'break-word',
+                      overflowWrap: 'anywhere'
+                    }}>
+                      {selectedProject.description}
+                    </p>
+                  </div>
+
+                  {selectedProject.responsibilities && (
+                    <div style={{ marginBottom: '2.5rem' }}>
+                      <h3 style={{
+                        color: 'var(--text-white)',
+                        fontFamily: 'var(--font-ui)',
+                        fontSize: '1.2rem',
+                        marginBottom: '1.5rem',
+                        textTransform: 'uppercase',
+                        letterSpacing: '2px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '12px',
+                        flexWrap: 'wrap',
+                        wordBreak: 'break-word'
+                      }}>
+                        <Github size={18} color="var(--accent-cyan)" /> SYSTEM_DIRECTIVES
+                      </h3>
+                      <div style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: '1rem'
+                      }}>
+                        {selectedProject.responsibilities.map((resp: string, idx: number) => (
+                          <motion.div
+                            key={idx}
+                            initial={{ opacity: 0, x: -10 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: idx * 0.1 }}
+                            style={{
+                              color: 'rgba(255, 255, 255, 0.65)',
+                              lineHeight: '1.7',
+                              padding: '1rem',
+                              background: 'rgba(255, 255, 255, 0.02)',
+                              border: '1px solid rgba(255, 255, 255, 0.05)',
+                              fontSize: '1rem',
+                              display: 'flex',
+                              gap: '15px'
+                            }}
+                          >
+                            <span style={{
+                              color: 'var(--accent-cyan)',
+                              fontFamily: 'var(--font-mono)',
+                              fontSize: '0.8rem',
+                              opacity: 0.5
+                            }}>
+                              [0{idx + 1}]
+                            </span>
+                            {resp}
+                          </motion.div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  <div style={{ display: 'flex', gap: '1.5rem', marginTop: '3rem' }}>
+                    {selectedProject.links && selectedProject.links.demo && selectedProject.links.demo !== '#' && (
+                      <motion.a
+                        href={selectedProject.links.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => playClickSound()}
+                        whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(255, 0, 60, 0.5)' }}
+                        whileTap={{ scale: 0.95 }}
+                        style={{
+                          padding: 'clamp(0.8rem, 2vw, 1.2rem) clamp(1rem, 3vw, 3rem)',
+                          background: 'var(--accent-red)',
+                          color: '#000',
+                          textDecoration: 'none',
                           display: 'flex',
                           alignItems: 'center',
-                          gap: '10px'
-                      }}>
-                          <span style={{ width: '4px', height: '4px', background: 'var(--accent-red)', display: 'inline-block' }}></span>
-                          CORE_SYSTEM_INTERFACE // {selectedProject.year || '2025'}
-                      </div>
-                      <button 
-                          onClick={() => { playClickSound(); setSelectedProject(null); }}
-                          style={{
-                              background: 'transparent',
-                              border: '1px solid var(--accent-red)',
-                              color: 'var(--accent-red)',
-                              fontFamily: 'var(--font-mono)',
-                              padding: '0.5rem 1rem',
-                              cursor: 'pointer',
-                              fontSize: '0.7rem',
-                              textTransform: 'uppercase',
-                              letterSpacing: '2px',
-                              transition: 'all 0.3s ease',
-                              clipPath: 'polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px)'
-                          }}
-                          onMouseEnter={(e) => {
-                              e.currentTarget.style.background = 'rgba(255, 0, 60, 0.1)';
-                              e.currentTarget.style.boxShadow = '0 0 15px rgba(255, 0, 60, 0.2)';
-                          }}
-                          onMouseLeave={(e) => {
-                              e.currentTarget.style.background = 'transparent';
-                              e.currentTarget.style.boxShadow = 'none';
-                          }}
+                          gap: '15px',
+                          fontWeight: 900,
+                          fontFamily: 'var(--font-ui)',
+                          textTransform: 'uppercase',
+                          letterSpacing: '2px',
+                          clipPath: 'polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px)',
+                          textAlign: 'center',
+                          justifyContent: 'center',
+                          flexWrap: 'wrap'
+                        }}
                       >
-                          DISCONNECT [ESC]
-                      </button>
-                  </div>
-
-                  {/* Scrollable Content */}
-                   <div 
-                    className="custom-scrollbar"
-                    style={{ 
-                        flex: 1, 
-                        overflowY: 'auto', 
-                        padding: 'clamp(1rem, 3vw, 2rem) clamp(1rem, 4vw, 3rem)',
-                        position: 'relative' 
-                    }}
-                  >
-                    {/* Scanline overlay for the whole content */}
-                    <div style={{
-                        position: 'absolute',
-                        top: 0, left: 0, right: 0, bottom: 0,
-                        background: 'repeating-linear-gradient(transparent 0, rgba(0, 243, 255, 0.01) 1px, transparent 2px)',
-                        pointerEvents: 'none',
-                        zIndex: 2,
-                        opacity: 0.5
-                    }} />
-
-                    {selectedProject.image && (
-                        <div className="image-tech-wrapper" style={{ 
-                            marginBottom: '2.5rem',
-                            border: '1px solid rgba(0, 243, 255, 0.1)',
-                            boxShadow: '0 0 30px rgba(0, 243, 255, 0.05)'
-                        }}>
-                            <img 
-                            src={selectedProject.image && typeof selectedProject.image === 'object' ? selectedProject.image.src : selectedProject.image} 
-                            alt={selectedProject.title} 
-                            style={{ 
-                                width: '100%', 
-                                height: 'auto', 
-                                display: 'block',
-                                opacity: 0.9,
-                                transition: 'opacity 0.3s ease'
-                            }} 
-                            />
-                            
-                            <div className="scanline-anim"></div>
-                            <div className="corner-bracket tl"></div>
-                            <div className="corner-bracket tr"></div>
-                            <div className="corner-bracket bl"></div>
-                            <div className="corner-bracket br"></div>
-                            
-                            <div className="system-status-overlay" style={{ opacity: 1, transform: 'none' }}>
-                                <span style={{ color: 'var(--accent-red)' }}>TARGET_ID:</span> {selectedProject.title.toUpperCase()}<br/>
-                                <span style={{ color: 'var(--accent-cyan)' }}>ACCESS:</span> GRANTED<br/>
-                                <span style={{ color: 'var(--text-dim)' }}>ENCRYPT:</span> 256-BIT
-                            </div>
-                        </div>
+                        <ExternalLink size={20} /> INITIALIZE_LIVE_SYSTEM
+                      </motion.a>
                     )}
-
-                    <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr)', gap: '2.5rem' }}>
-                        <div>
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginBottom: '2rem' }}>
-                                <motion.h2 
-                                    initial={{ opacity: 0, x: -20 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    style={{
-                                        fontFamily: 'var(--font-ui)',
-                                        fontSize: 'clamp(2rem, 8vw, 4rem)',
-                                        color: 'var(--text-white)',
-                                        margin: 0,
-                                        textTransform: 'uppercase',
-                                        lineHeight: '1.1',
-                                        letterSpacing: '2px',
-                                        textShadow: '0 0 30px rgba(0, 243, 255, 0.4)',
-                                        wordBreak: 'break-word',
-                                        overflowWrap: 'anywhere'
-                                    }}
-                                >
-                                    {selectedProject.title}
-                                </motion.h2>
-                                {selectedProject.category && (
-                                    <div style={{ 
-                                        display: 'flex', 
-                                        alignItems: 'center', 
-                                        gap: '12px',
-                                        flexWrap: 'wrap'
-                                    }}>
-                                        <div style={{ width: '40px', height: '1px', background: 'var(--accent-cyan)' }}></div>
-                                        <span style={{ 
-                                            fontFamily: 'var(--font-mono)', 
-                                            color: 'var(--accent-cyan)', 
-                                            fontSize: '0.9rem', 
-                                            letterSpacing: '4px',
-                                            textTransform: 'uppercase',
-                                            opacity: 0.8
-                                        }}>
-                                            {selectedProject.category}
-                                        </span>
-                                    </div>
-                                )}
-                            </div>
-
-                            <div style={{
-                                display: 'flex',
-                                gap: '1rem',
-                                marginBottom: '2.5rem',
-                                flexWrap: 'wrap'
-                            }}>
-                                {selectedProject.tech.map((t: string) => (
-                                    <span key={t} style={{
-                                        background: 'rgba(0, 243, 255, 0.05)',
-                                        border: '1px solid rgba(0, 243, 255, 0.25)',
-                                        padding: '0.5rem 1.2rem',
-                                        fontFamily: 'var(--font-mono)',
-                                        fontSize: '0.85rem',
-                                        color: 'var(--accent-cyan)',
-                                        position: 'relative',
-                                        overflow: 'hidden',
-                                        boxShadow: '0 0 15px rgba(0, 243, 255, 0.05)'
-                                    }}>
-                                        <div style={{
-                                            position: 'absolute',
-                                            top: 0, left: 0,
-                                            width: '4px', height: '4px',
-                                            background: 'var(--accent-red)'
-                                        }}></div>
-                                        {t}
-                                    </span>
-                                ))}
-                            </div>
-
-                            <div style={{ 
-                                background: 'rgba(255, 255, 255, 0.02)', 
-                                padding: '2rem', 
-                                borderLeft: '4px solid var(--accent-red)',
-                                position: 'relative',
-                                marginBottom: '2.5rem'
-                            }}>
-                                <h3 style={{ 
-                                    color: 'var(--text-white)', 
-                                    fontFamily: 'var(--font-ui)', 
-                                    fontSize: '1.2rem', 
-                                    marginBottom: '1rem',
-                                    textTransform: 'uppercase',
-                                    letterSpacing: '2px',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    gap: '10px',
-                                    flexWrap: 'wrap',
-                                    wordBreak: 'break-word'
-                                }}>
-                                    <Code size={18} color="var(--accent-red)" /> MISSION_METADATA.LOG
-                                </h3>
-                                <p style={{
-                                    color: 'rgba(255, 255, 255, 0.7)',
-                                    lineHeight: '1.8',
-                                    fontSize: '1.1rem',
-                                    margin: 0,
-                                    lineHeight: '1.8',
-                                    fontSize: '1.1rem',
-                                    margin: 0,
-                                    fontFamily: 'var(--font-main)',
-                                    wordBreak: 'break-word',
-                                    overflowWrap: 'anywhere'
-                                }}>
-                                    {selectedProject.description}
-                                </p>
-                            </div>
-
-                            {selectedProject.responsibilities && (
-                                <div style={{ marginBottom: '2.5rem' }}>
-                                    <h3 style={{ 
-                                        color: 'var(--text-white)', 
-                                        fontFamily: 'var(--font-ui)', 
-                                        fontSize: '1.2rem', 
-                                        marginBottom: '1.5rem',
-                                        textTransform: 'uppercase',
-                                        letterSpacing: '2px',
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        alignItems: 'center',
-                                        gap: '12px',
-                                        flexWrap: 'wrap',
-                                        wordBreak: 'break-word'
-                                    }}>
-                                        <Github size={18} color="var(--accent-cyan)" /> SYSTEM_DIRECTIVES
-                                    </h3>
-                                    <div style={{ 
-                                        display: 'flex',
-                                        flexDirection: 'column',
-                                        gap: '1rem'
-                                    }}>
-                                        {selectedProject.responsibilities.map((resp: string, idx: number) => (
-                                        <motion.div 
-                                            key={idx}
-                                            initial={{ opacity: 0, x: -10 }}
-                                            animate={{ opacity: 1, x: 0 }}
-                                            transition={{ delay: idx * 0.1 }}
-                                            style={{ 
-                                                color: 'rgba(255, 255, 255, 0.65)', 
-                                                lineHeight: '1.7',
-                                                padding: '1rem',
-                                                background: 'rgba(255, 255, 255, 0.02)',
-                                                border: '1px solid rgba(255, 255, 255, 0.05)',
-                                                fontSize: '1rem',
-                                                display: 'flex',
-                                                gap: '15px'
-                                            }}
-                                        >
-                                            <span style={{ 
-                                                color: 'var(--accent-cyan)', 
-                                                fontFamily: 'var(--font-mono)',
-                                                fontSize: '0.8rem',
-                                                opacity: 0.5
-                                            }}>
-                                                [0{idx + 1}]
-                                            </span>
-                                            {resp}
-                                        </motion.div>
-                                        ))}
-                                    </div>
-                                </div>
-                            )}
-
-                            <div style={{ display: 'flex', gap: '1.5rem', marginTop: '3rem' }}>
-                                {selectedProject.links && selectedProject.links.demo && selectedProject.links.demo !== '#' && (
-                                    <motion.a 
-                                        href={selectedProject.links.demo} 
-                                        target="_blank" 
-                                        rel="noopener noreferrer" 
-                                        onClick={() => playClickSound()}
-                                        whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(255, 0, 60, 0.5)' }}
-                                        whileTap={{ scale: 0.95 }}
-                                        style={{
-                                            padding: 'clamp(0.8rem, 2vw, 1.2rem) clamp(1rem, 3vw, 3rem)',
-                                            background: 'var(--accent-red)',
-                                            color: '#000',
-                                            textDecoration: 'none',
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            gap: '15px',
-                                            fontWeight: 900,
-                                            fontFamily: 'var(--font-ui)',
-                                            textTransform: 'uppercase',
-                                            letterSpacing: '2px',
-                                            clipPath: 'polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px)',
-                                            textAlign: 'center',
-                                            justifyContent: 'center',
-                                            flexWrap: 'wrap'
-                                        }}
-                                    >
-                                        <ExternalLink size={20} /> INITIALIZE_LIVE_SYSTEM
-                                    </motion.a>
-                                )}
-                            </div>
-                        </div>
-                    </div>
                   </div>
-              </motion.div>
-          </div>,
-          document.body
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>,
+        document.body
       )}
     </div>
   );
 };
 
 const ProjectCard: React.FC<{ project: any, index: number, onClick: () => void }> = ({ project, index, onClick }) => {
-    return (
-        <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 + (index * 0.1) }}
-            whileHover={{ y: -5, borderColor: 'var(--accent-red)' }}
-            onClick={() => { playClickSound(); onClick(); }}
-            style={{
-                background: 'rgba(255, 255, 255, 0.03)',
-                border: '1px solid rgba(255, 255, 255, 0.1)',
-                padding: '1.5rem',
-                position: 'relative',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between',
-                cursor: 'pointer',
-                transition: 'all 0.3s ease',
-                overflow: 'hidden'
-            }}
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.4 + (index * 0.1) }}
+      whileHover={{ y: -5, borderColor: 'var(--accent-red)' }}
+      onClick={() => { playClickSound(); onClick(); }}
+      style={{
+        background: 'rgba(255, 255, 255, 0.03)',
+        border: '1px solid rgba(255, 255, 255, 0.1)',
+        padding: '1.5rem',
+        position: 'relative',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        cursor: 'pointer',
+        transition: 'all 0.3s ease',
+        overflow: 'hidden'
+      }}
+    >
+      {/* Scanline Effect */}
+      <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '1px', background: 'rgba(0, 243, 255, 0.1)', zIndex: 1 }} />
+
+      <div>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem' }}>
+          <h3 style={{
+            color: 'var(--text-white)',
+            fontFamily: 'var(--font-ui)',
+            fontSize: '1.2rem',
+            textTransform: 'uppercase',
+            wordBreak: 'break-word',
+            letterSpacing: '1px'
+          }}>
+            {project.title}
+          </h3>
+          <span style={{
+            fontFamily: 'var(--font-mono)',
+            color: 'var(--accent-red)',
+            fontSize: '0.7rem',
+            opacity: 0.6
+          }}>{project.year}</span>
+        </div>
+
+        <p style={{
+          color: 'rgba(255, 255, 255, 0.6)',
+          fontFamily: 'var(--font-main)',
+          fontSize: '0.9rem',
+          lineHeight: 1.6,
+          marginBottom: '1.5rem',
+          display: '-webkit-box',
+          WebkitLineClamp: 3,
+          WebkitBoxOrient: 'vertical',
+          overflow: 'hidden'
+        }}>
+          {project.description}
+        </p>
+      </div>
+
+      <div>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1.5rem' }}>
+          {project.tech.slice(0, 3).map((t: string) => (
+            <span key={t} style={{
+              fontSize: '0.65rem',
+              color: 'var(--accent-cyan)',
+              background: 'rgba(0, 243, 255, 0.05)',
+              padding: '0.2rem 0.5rem',
+              border: '1px solid rgba(0, 243, 255, 0.1)',
+              fontFamily: 'var(--font-mono)',
+              letterSpacing: '0.5px'
+            }}>
+              {t}
+            </span>
+          ))}
+          {project.tech.length > 3 && (
+            <span style={{ fontSize: '0.7rem', color: 'var(--text-dim)', alignSelf: 'center', opacity: 0.5 }}>+{project.tech.length - 3}</span>
+          )}
+        </div>
+
+        <div
+          className="tech-link"
+          style={{
+            color: 'var(--accent-red)',
+            fontSize: '0.8rem',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '5px',
+            fontWeight: 700,
+            textTransform: 'uppercase',
+            letterSpacing: '1.5px',
+            fontFamily: 'var(--font-mono)'
+          }}
         >
-           {/* Scanline Effect */}
-           <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '1px', background: 'rgba(0, 243, 255, 0.1)', zIndex: 1 }} />
-           
-           <div>
-               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem' }}>
-                    <h3 style={{
-                        color: 'var(--text-white)',
-                        fontFamily: 'var(--font-ui)',
-                        fontSize: '1.2rem',
-                        textTransform: 'uppercase',
-                        wordBreak: 'break-word',
-                        letterSpacing: '1px'
-                    }}>
-                        {project.title}
-                    </h3>
-                    <span style={{ 
-                        fontFamily: 'var(--font-mono)', 
-                        color: 'var(--accent-red)', 
-                        fontSize: '0.7rem',
-                        opacity: 0.6
-                    }}>{project.year}</span>
-               </div>
-               
-               <p style={{
-                   color: 'rgba(255, 255, 255, 0.6)',
-                   fontFamily: 'var(--font-main)',
-                   fontSize: '0.9rem',
-                   lineHeight: 1.6,
-                   marginBottom: '1.5rem',
-                   display: '-webkit-box',
-                   WebkitLineClamp: 3,
-                   WebkitBoxOrient: 'vertical',
-                   overflow: 'hidden'
-               }}>
-                   {project.description}
-               </p>
-           </div>
-
-           <div>
-               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1.5rem' }}>
-                    {project.tech.slice(0, 3).map((t: string) => (
-                        <span key={t} style={{
-                            fontSize: '0.65rem',
-                            color: 'var(--accent-cyan)',
-                            background: 'rgba(0, 243, 255, 0.05)',
-                            padding: '0.2rem 0.5rem',
-                            border: '1px solid rgba(0, 243, 255, 0.1)',
-                            fontFamily: 'var(--font-mono)',
-                            letterSpacing: '0.5px'
-                        }}>
-                            {t}
-                        </span>
-                    ))}
-                    {project.tech.length > 3 && (
-                         <span style={{ fontSize: '0.7rem', color: 'var(--text-dim)', alignSelf: 'center', opacity: 0.5 }}>+{project.tech.length - 3}</span>
-                    )}
-               </div>
-
-                <div 
-                  className="tech-link"
-                  style={{ 
-                    color: 'var(--accent-red)', 
-                    fontSize: '0.8rem', 
-                    display: 'flex', 
-                    alignItems: 'center', 
-                    gap: '5px', 
-                    fontWeight: 700,
-                    textTransform: 'uppercase',
-                    letterSpacing: '1.5px',
-                    fontFamily: 'var(--font-mono)'
-                  }}
-                >
-                    Initialize_System <ChevronRight size={14} />
-                </div>
-           </div>
-        </motion.div>
-    );
+          Initialize_System <ChevronRight size={14} />
+        </div>
+      </div>
+    </motion.div>
+  );
 };
 
 export default ProjectsSection;
