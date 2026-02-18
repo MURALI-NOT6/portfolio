@@ -35,7 +35,7 @@ const PortfolioMain: React.FC = () => {
   return (
     <div className="portfolio-container">
       <CyberpunkBorder />
-      
+
       {/* Background Video Layer */}
       <div style={{
         position: 'fixed',
@@ -85,10 +85,10 @@ const PortfolioMain: React.FC = () => {
       )}
 
       {/* Header Navigation Area */}
-      <nav className="main-header-nav" style={{ 
-        display: 'flex', 
-        justifyContent: 'space-between', 
-        alignItems: 'center', 
+      <nav className="main-header-nav" style={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
         marginBottom: '2rem',
         marginTop: '0.5rem',
         padding: '0.5rem 1.5rem',
@@ -107,14 +107,14 @@ const PortfolioMain: React.FC = () => {
           {menuOpen ? <X color="var(--accent-red)" /> : <Menu color="var(--accent-red)" />}
         </div>
 
-        <div 
+        <div
           className={`navigation-bar ${menuOpen ? 'mobile-open' : ''}`}
-          style={{ 
-            display: 'flex', 
+          style={{
+            display: 'flex',
             gap: '4px',
             alignItems: 'center'
           }}>
-          
+
           {/* Mobile-only Sidebar Header */}
           {menuOpen && (
             <div className="mobile-only-header" style={{ width: '100%', marginBottom: '2rem', padding: '0 1rem' }}>
@@ -145,12 +145,12 @@ const PortfolioMain: React.FC = () => {
                   color: isActive ? 'var(--text-white)' : 'rgba(255, 255, 255, 0.9)',
                   border: isActive ? '1px solid var(--accent-red)' : '1px solid rgba(255, 255, 255, 0.1)',
                 }}
-                transition={{ 
+                transition={{
                   delay: menuOpen ? 0.1 + (i * 0.05) : 0,
                   duration: 0.3
                 }}
-                whileHover={{ 
-                  backgroundColor: 'rgba(255, 255, 255, 0.2)', 
+                whileHover={{
+                  backgroundColor: 'rgba(255, 255, 255, 0.2)',
                   color: 'var(--text-white)',
                   scale: 1.02
                 }}
@@ -162,7 +162,7 @@ const PortfolioMain: React.FC = () => {
                   fontSize: '0.75rem',
                   fontWeight: 700,
                   cursor: 'pointer',
-                  clipPath: menuOpen 
+                  clipPath: menuOpen
                     ? 'polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%)'
                     : 'polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px)',
                   textTransform: 'uppercase',
@@ -180,9 +180,9 @@ const PortfolioMain: React.FC = () => {
                 <span style={{ display: 'flex', alignItems: 'center', opacity: 0.8 }}>{item.icon}</span>
                 {item.id}
                 {isActive && menuOpen && (
-                  <motion.div 
+                  <motion.div
                     layoutId="activeGlow"
-                    style={{ position: 'absolute', left: 0, width: '3px', height: '100%', background: 'var(--accent-red)', boxShadow: '0 0 10px var(--accent-red)' }} 
+                    style={{ position: 'absolute', left: 0, width: '3px', height: '100%', background: 'var(--accent-red)', boxShadow: '0 0 10px var(--accent-red)' }}
                   />
                 )}
               </motion.button>
@@ -192,22 +192,22 @@ const PortfolioMain: React.FC = () => {
           {/* Mobile-only Sidebar Footer */}
           {menuOpen && (
             <div className="mobile-only-footer" style={{ marginTop: 'auto', width: '100%', padding: '2rem 1rem 0' }}>
-               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'rgba(255, 255, 255, 0.4)', fontFamily: 'var(--font-mono)', fontSize: '0.55rem' }}>
-                  <Zap size={10} color="var(--accent-cyan)" /> NETWORK_LATENCY: 24ms
-               </div>
-               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'rgba(255, 255, 255, 0.4)', fontFamily: 'var(--font-mono)', fontSize: '0.55rem', marginTop: '5px' }}>
-                  <Shield size={10} color="var(--accent-red)" /> CORE_TEMP: OPTIMAL
-               </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'rgba(255, 255, 255, 0.4)', fontFamily: 'var(--font-mono)', fontSize: '0.55rem' }}>
+                <Zap size={10} color="var(--accent-cyan)" /> NETWORK_LATENCY: 24ms
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'rgba(255, 255, 255, 0.4)', fontFamily: 'var(--font-mono)', fontSize: '0.55rem', marginTop: '5px' }}>
+                <Shield size={10} color="var(--accent-red)" /> CORE_TEMP: OPTIMAL
+              </div>
             </div>
           )}
         </div>
       </nav>
 
       {/* Main Content Area - Only visible after loading */}
-      <div className="main-layout" style={{ 
-        position: 'relative', 
-        zIndex: 10, 
-        opacity: securityCleared ? 1 : 0, 
+      <div className="main-layout" style={{
+        position: 'relative',
+        zIndex: 10,
+        opacity: securityCleared ? 1 : 0,
         transition: 'opacity 0.5s',
         display: (activeTab === 'ABOUT' || activeTab === 'SKILLS' || activeTab === 'PROJECTS' || activeTab === 'CONTACT') ? 'block' : 'grid',
         width: '100%'
@@ -222,12 +222,12 @@ const PortfolioMain: React.FC = () => {
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.8 }}
             >
-              <motion.h1 
+              <motion.h1
                 animate={{ skewX: [0, -10, 0, 10, 0], opacity: [1, 0.8, 1, 0.9, 1] }}
                 transition={{ repeat: Infinity, duration: 3, times: [0, 0.1, 0.2, 0.3, 1] }}
-                style={{ 
-                  fontFamily: 'var(--font-ui)', 
-                  fontSize: 'clamp(1.5rem, 6vw, 4rem)', 
+                style={{
+                  fontFamily: 'var(--font-ui)',
+                  fontSize: 'clamp(1.5rem, 6vw, 4rem)',
                   lineHeight: 1,
                   fontWeight: 900,
                   marginBottom: '0.8rem',
@@ -241,10 +241,10 @@ const PortfolioMain: React.FC = () => {
               >
                 MURALIDHARAN
               </motion.h1>
-              <p style={{ 
-                maxWidth: '600px', 
-                color: 'var(--text-white)', 
-                lineHeight: 1.4, 
+              <p style={{
+                maxWidth: '600px',
+                color: 'var(--text-white)',
+                lineHeight: 1.4,
                 fontSize: 'clamp(0.8rem, 3vw, 1rem)',
                 opacity: 0.9,
                 marginBottom: '1.5rem',
@@ -252,14 +252,14 @@ const PortfolioMain: React.FC = () => {
               }}>
                 Frontend Developer specializing in modern web technologies, scalable systems, and user-centric digital solutions
               </p>
-              <div 
+              <div
                 className="hero-buttons"
                 style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}
               >
-                <a 
-                  href={resumePdf} 
+                <a
+                  href={resumePdf}
                   download="muralidharan.pdf"
-                  className="tech-border" 
+                  className="tech-border"
                   onClick={() => playClickSound()}
                   style={{
                     background: 'var(--text-white)',
@@ -279,8 +279,8 @@ const PortfolioMain: React.FC = () => {
                 >
                   Download Resume
                 </a>
-                <button 
-                  className="tech-border" 
+                <button
+                  className="tech-border"
                   onClick={() => handleTabChange('CONTACT')}
                   style={{
                     background: 'transparent',
@@ -309,8 +309,8 @@ const PortfolioMain: React.FC = () => {
             >
               <div style={{ textAlign: 'right', display: 'flex', flexDirection: 'column', alignItems: 'flex-end', maxWidth: '400px', marginLeft: 'auto' }}>
                 <div style={{ marginTop: '1rem', opacity: 0.8, fontSize: '0.9rem', textAlign: 'right', fontFamily: 'var(--font-mono)', color: 'var(--accent-red)' }}>
-                  SYSTEM STATUS: ONLINE <br/>
-                  LOCATION: CHENNAI, IND <br/>
+                  SYSTEM STATUS: ONLINE <br />
+                  LOCATION: SALEM, IND <br />
                   ROLE: FRONTEND DEVELOPER
                 </div>
               </div>
@@ -337,13 +337,13 @@ const PortfolioMain: React.FC = () => {
 
 
 
-       <div className="bottom-signal-indicator" style={{ 
-        position: 'fixed', 
-        bottom: '2rem', 
-        right: '2rem', 
-        display: 'flex', 
-        alignItems: 'flex-end', 
-        gap: '4px' 
+      <div className="bottom-signal-indicator" style={{
+        position: 'fixed',
+        bottom: '2rem',
+        right: '2rem',
+        display: 'flex',
+        alignItems: 'flex-end',
+        gap: '4px'
       }}>
         {[0.4, 0.7, 0.2, 0.9, 0.5, 0.8, 0.3].map((delay, i) => (
           <motion.div
